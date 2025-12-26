@@ -44,7 +44,7 @@
 
 
         <!-- Navbar start -->
-        <div class="container-fluid border-bottom bg-light wow fadeIn" data-wow-delay="0.1s">
+      <div class="container-fluid border-bottom bg-light wow fadeIn" data-wow-delay="0.1s">
         <div class="container topbar bg-primary d-none d-lg-block py-2" style="border-radius: 0 40px">
             <div class="d-flex justify-content-between">
                 <div class="top-info ps-2">
@@ -60,7 +60,7 @@
                             class="fab fa-twitter text-secondary"></i></a>
                     <a class="btn btn-light btn-sm-square rounded-circle"><i
                             class="fab fa-instagram text-secondary"></i></a>
-                    <a href="LoginSignUp.html" class="btn btn-light btn-sm-square rounded-circle" style="
+                    <!-- <a href="LoginSignUp.html" class="btn btn-light btn-sm-square rounded-circle" style="
     width: 70px;
     height: 33px;
     border-radius: 25px !important;
@@ -69,7 +69,7 @@
     justify-content: center;
   ">
                         <span class="text-secondary">Login</span>
-                    </a>
+                    </a> -->
 
 
                 </div>
@@ -77,14 +77,27 @@
         </div>
         <div class="px-0">
             <nav class=" container navbar navbar-light navbar-expand-xl py-3">
-                <a href="index.html" class="navbar-brand d-flex align-items-center">
+                <!-- <a href="index.html" class="navbar-brand d-flex align-items-center">
                     <img src="img/St.MaryLogo.png" alt="St. Mary Logo"
                         style="height: 75px; width: auto; margin-right: 0px;" />
-                    <h1 class="mx-3 text-primary display-6 mb-0">
+                    <h1 style="font-size:clamp(16px,4vw,28px);white-space:nowrap;"
+                        class="mx-3 text-primary display-6 mb-0">
                         St. Mary <span class="text-secondary">English School</span>
                     </h1>
+                    <h1 class="text-primary mb-0" style="font-size:clamp(16px,4vw,28px);white-space:nowrap;">
+                        St. Mary <span class="text-secondary">English School</span>
+                    </h1>
+
+                </a> -->
+                <a href="index.html" class="navbar-brand d-flex align-items-center flex-nowrap" style="min-width:0;">
+                    <img src="img/St.MaryLogo.png" style="height:45px;width:auto;flex-shrink:0;">
+                    <span class="ms-2 text-primary display-6 "
+                        style="font-size:clamp(17px,3.5vw,27px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">
+                        St. Mary <span class="text-secondary">English School</span>
+                    </span>
                 </a>
-                <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse"
+
+                <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarCollapse">
                     <span class="fa fa-bars text-primary"></span>
                 </button>
@@ -105,6 +118,7 @@
                             </div>
                         </div>
                         <a href="contact.html" class="nav-item nav-link">Contact</a>
+                        <a href="LoginSignUp.html" class="nav-item nav-link">Log-in</a>
                     </div>
                     <!-- <div class="d-flex me-4">
                         <div id="phone-tada" class="d-flex align-items-center justify-content-center">
