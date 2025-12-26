@@ -986,9 +986,34 @@
     <script src="lib/waypoints/waypoints.min.js"></script>
     <script src="lib/lightbox/js/lightbox.min.js"></script>
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <script>
+        async function signup() {
+            try {
+                const response = await axios.post(
+                    "https://jsonplaceholder.typicode.com/posts",
+                    {
+                        username: "testuser",
+                        email: "test@email.com",
+                        password: "123456"
+                    }
+                );
+
+                console.log(response.data);
+                alert("Signup successful");
+            } catch (error) {
+                console.error(error);
+                alert("Signup failed");
+            }
+        }
+
+        signup();
+    </script>
+
+
 </body>
 
 </html>
