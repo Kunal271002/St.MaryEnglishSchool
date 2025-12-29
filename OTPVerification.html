@@ -842,7 +842,29 @@
                     break;
             }
 
-            messageDiv.innerHTML = `<i class='bx ${icon}' style="color: ${iconColor}; font-size: 20px;"></i> ${text}`;
+            messageDiv.innerHTML = `
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px;">
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <i class='bx ${icon}' style="color: ${iconColor}; font-size: 20px;"></i>
+                <span style="color: #333333; font-size: 14px; font-weight: 500;">${text}</span>
+            </div>
+            <button class="close-btn" style="
+                background: none;
+                border: none;
+                color: #757575;
+                font-size: 18px;
+                cursor: pointer;
+                padding: 4px;
+                border-radius: 4px;
+                transition: all 0.2s;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            ">
+                <i class='bx bx-x'></i>
+            </button>
+        </div>
+    `;
 
             // Apply styling for white background with shadow
             messageDiv.style.cssText = `
@@ -850,7 +872,7 @@
         top: 20px;
         right: 20px;
         z-index: 1000;
-        max-width: 300px;
+        max-width: 350px;
         background-color: white;
         color: #333333;
         padding: 15px 20px;
@@ -859,9 +881,6 @@
         font-family: 'Poppins', sans-serif;
         font-size: 14px;
         line-height: 1.4;
-        display: flex;
-        align-items: center;
-        gap: 12px;
         border-left: 4px solid ${iconColor};
         animation: fadeInSlide 0.3s ease-out forwards;
         opacity: 0;
@@ -870,15 +889,26 @@
 
             document.body.appendChild(messageDiv);
 
-            // Add fade out animation before removing
-            setTimeout(() => {
+            // Add close button functionality
+            const closeBtn = messageDiv.querySelector('.close-btn');
+            closeBtn.addEventListener('mouseover', () => {
+                closeBtn.style.color = '#333333';
+                closeBtn.style.backgroundColor = '#f5f5f5';
+            });
+
+            closeBtn.addEventListener('mouseout', () => {
+                closeBtn.style.color = '#757575';
+                closeBtn.style.backgroundColor = 'transparent';
+            });
+
+            closeBtn.addEventListener('click', () => {
                 messageDiv.style.animation = 'fadeOutSlide 0.3s ease-in forwards';
                 setTimeout(() => {
                     if (messageDiv.parentNode) {
                         messageDiv.remove();
                     }
                 }, 300);
-            }, 7000); // Start fade out before removal
+            });
 
             // Add animation CSS if not already added
             if (!document.getElementById('message-animations')) {
@@ -909,8 +939,15 @@
         `;
                 document.head.appendChild(style);
             }
+
+            // Return the message div so you can remove it programmatically later if needed
+            return messageDiv;
         }
 
+        // Usage: Store reference to remove later
+
+        // To remove it programmatically later:
+        // myMessage.querySelector('.close-btn').click();
         function showError(text) {
             showMessage(text, "error");
         }
