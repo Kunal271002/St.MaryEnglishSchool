@@ -1,524 +1,1215 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>St.Mary's English School</title>
     <style>
-        :root {
-            --primary-color: #ff4880;
-            --secondary-color: #ff4880;
-            --black: #000000;
-            --white: #ffffff;
-            --gray: #efefef;
-            --gray-2: #757575;
+      :root {
+        --primary-color: #ffc107;
+        --secondary-color: #ff9800;
+        --black: #000000;
+        --white: #ffffff;
+        --gray: #efefef;
+        --gray-2: #757575;
 
-            --facebook-color: #4267B2;
-            --google-color: #DB4437;
-            --twitter-color: #1DA1F2;
-            --insta-color: #6a0225;
+        --facebook-color: #4267b2;
+        --google-color: #db4437;
+        --twitter-color: #1da1f2;
+        --insta-color: #e1306c;
+      }
+
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap");
+
+      * {
+        font-family: "Poppins", sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        height: 100vh;
+        overflow: hidden;
+      }
+
+      .container {
+        position: relative;
+        min-height: 100vh;
+        overflow: hidden;
+      }
+
+      .row {
+        display: flex;
+        flex-wrap: wrap;
+        height: 100vh;
+      }
+
+      .col {
+        width: 50%;
+      }
+
+      .align-items-center {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+
+      .form-wrapper {
+        width: 100%;
+        max-width: 28rem;
+      }
+
+      .form {
+        padding: 1rem;
+        background-color: var(--white);
+        border-radius: 1.5rem;
+        width: 100%;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        transform: scale(0);
+        transition: 0.5s ease-in-out;
+        transition-delay: 1s;
+      }
+
+      .input-group {
+        position: relative;
+        width: 100%;
+        margin: 1rem 0;
+      }
+
+      .input-group i {
+        position: absolute;
+        top: 50%;
+        left: 1rem;
+        transform: translateY(-50%);
+        font-size: 1.4rem;
+        color: var(--gray-2);
+      }
+
+      .input-group input {
+        width: 100%;
+        padding: 1rem 3rem;
+        font-size: 1rem;
+        background-color: var(--gray);
+        border-radius: 0.5rem;
+        border: 0.125rem solid var(--white);
+        outline: none;
+      }
+
+      .input-group input:focus {
+        border: 0.125rem solid var(--primary-color);
+      }
+
+      .form button {
+        cursor: pointer;
+        width: 100%;
+        padding: 0.6rem 0;
+        border-radius: 0.5rem;
+        border: none;
+        background-color: var(--primary-color);
+        color: var(--white);
+        font-size: 1.2rem;
+        outline: none;
+      }
+
+      .form p {
+        margin: 1rem 0;
+        font-size: 0.7rem;
+      }
+
+      .flex-col {
+        flex-direction: column;
+      }
+
+      .social-list {
+        margin: 2rem 0;
+        padding: 1rem;
+        border-radius: 1.5rem;
+        width: 100%;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        transform: scale(0);
+        transition: 0.5s ease-in-out;
+        transition-delay: 1.2s;
+      }
+
+      .social-list > div {
+        color: var(--white);
+        margin: 0 0.5rem;
+        padding: 0.7rem;
+        cursor: pointer;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        transform: scale(0);
+        transition: 0.5s ease-in-out;
+      }
+
+      .social-list > div:nth-child(1) {
+        transition-delay: 1.4s;
+      }
+
+      .social-list > div:nth-child(2) {
+        transition-delay: 1.6s;
+      }
+
+      .social-list > div:nth-child(3) {
+        transition-delay: 1.8s;
+      }
+
+      .social-list > div:nth-child(4) {
+        transition-delay: 2s;
+      }
+
+      .social-list > div > i {
+        font-size: 1.5rem;
+        transition: 0.4s ease-in-out;
+      }
+
+      .social-list > div:hover i {
+        transform: scale(1.5);
+      }
+
+      .facebook-bg {
+        background-color: var(--facebook-color);
+      }
+
+      .google-bg {
+        background-color: var(--google-color);
+      }
+
+      .twitter-bg {
+        background-color: var(--twitter-color);
+      }
+
+      .insta-bg {
+        background-color: var(--insta-color);
+      }
+
+      .pointer {
+        cursor: pointer;
+      }
+
+      .container.sign-in .form.sign-in,
+      .container.sign-in .social-list.sign-in,
+      .container.sign-in .social-list.sign-in > div,
+      .container.sign-up .form.sign-up,
+      .container.sign-up .social-list.sign-up,
+      .container.sign-up .social-list.sign-up > div {
+        transform: scale(1);
+      }
+
+      .content-row {
+        position: absolute;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        z-index: 6;
+        width: 100%;
+      }
+
+      .text {
+        margin: 4rem;
+        color: var(--white);
+      }
+
+      .text h2 {
+        font-size: 3.5rem;
+        font-weight: 800;
+        margin: 2rem 0;
+        transition: 1s ease-in-out;
+      }
+
+      .text p {
+        font-weight: 600;
+        transition: 1s ease-in-out;
+        transition-delay: 0.2s;
+      }
+
+      .img img {
+        width: 30vw;
+        transition: 1s ease-in-out;
+        transition-delay: 0.4s;
+      }
+
+      .text.sign-in h2,
+      .text.sign-in p,
+      .img.sign-in img {
+        transform: translateX(-250%);
+      }
+
+      .text.sign-up h2,
+      .text.sign-up p,
+      .img.sign-up img {
+        transform: translateX(250%);
+      }
+
+      .container.sign-in .text.sign-in h2,
+      .container.sign-in .text.sign-in p,
+      .container.sign-in .img.sign-in img,
+      .container.sign-up .text.sign-up h2,
+      .container.sign-up .text.sign-up p,
+      .container.sign-up .img.sign-up img {
+        transform: translateX(0);
+      }
+
+      /* BACKGROUND */
+
+      .container::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 300vw;
+        transform: translate(35%, 0);
+        background-image: linear-gradient(
+          -45deg,
+          var(--primary-color) 0%,
+          var(--secondary-color) 100%
+        );
+        transition: 1s ease-in-out;
+        z-index: 6;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        border-bottom-right-radius: max(50vw, 50vh);
+        border-top-left-radius: max(50vw, 50vh);
+      }
+
+      .container.sign-in::before {
+        transform: translate(0, 0);
+        right: 50%;
+      }
+
+      .container.sign-up::before {
+        transform: translate(100%, 0);
+        right: 50%;
+      }
+
+      /* RESPONSIVE */
+
+      @media only screen and (max-width: 425px) {
+        .container::before,
+        .container.sign-in::before,
+        .container.sign-up::before {
+          height: 100vh;
+          border-bottom-right-radius: 0;
+          border-top-left-radius: 0;
+          z-index: 0;
+          transform: none;
+          right: 0;
         }
 
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
-
-        * {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html,
-        body {
-            height: 100vh;
-            overflow: hidden;
-        }
-
-        .container {
-            position: relative;
-            min-height: 100vh;
-            overflow: hidden;
-        }
-
-        .row {
-            display: flex;
-            flex-wrap: wrap;
-            height: 100vh;
-        }
-
-        .col {
-            width: 50%;
-        }
-
-        .align-items-center {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-
-        .form-wrapper {
-            width: 100%;
-            max-width: 28rem;
-        }
-
-        .form {
-            padding: 1rem;
-            background-color: var(--white);
-            border-radius: 1.5rem;
-            width: 100%;
-            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-            transform: scale(0);
-            transition: .5s ease-in-out;
-            transition-delay: 1s;
-        }
-
-        .input-group {
-            position: relative;
-            width: 100%;
-            margin: 1rem 0;
-        }
-
-        .input-group i {
-            position: absolute;
-            top: 50%;
-            left: 1rem;
-            transform: translateY(-50%);
-            font-size: 1.4rem;
-            color: var(--gray-2);
-        }
-
-        .input-group input {
-            width: 100%;
-            padding: 1rem 3rem;
-            font-size: 1rem;
-            background-color: var(--gray);
-            border-radius: .5rem;
-            border: 0.125rem solid var(--white);
-            outline: none;
-        }
-
-        .input-group input:focus {
-            border: 0.125rem solid var(--primary-color);
-        }
-
-        .form button {
-            cursor: pointer;
-            width: 100%;
-            padding: .6rem 0;
-            border-radius: .5rem;
-            border: none;
-            background-color: var(--primary-color);
-            color: var(--white);
-            font-size: 1.2rem;
-            outline: none;
-        }
-
-        .form p {
-            margin: 1rem 0;
-            font-size: .7rem;
-        }
-
-        .flex-col {
-            flex-direction: column;
-        }
-
-        .social-list {
-            margin: 2rem 0;
-            padding: 1rem;
-            border-radius: 1.5rem;
-            width: 100%;
-            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-            transform: scale(0);
-            transition: .5s ease-in-out;
-            transition-delay: 1.2s;
-        }
-
-        .social-list>div {
-            color: var(--white);
-            margin: 0 .5rem;
-            padding: .7rem;
-            cursor: pointer;
-            border-radius: .5rem;
-            cursor: pointer;
-            transform: scale(0);
-            transition: .5s ease-in-out;
-        }
-
-        .social-list>div:nth-child(1) {
-            transition-delay: 1.4s;
-        }
-
-        .social-list>div:nth-child(2) {
-            transition-delay: 1.6s;
-        }
-
-        .social-list>div:nth-child(3) {
-            transition-delay: 1.8s;
-        }
-
-        .social-list>div:nth-child(4) {
-            transition-delay: 2s;
-        }
-
-        .social-list>div>i {
-            font-size: 1.5rem;
-            transition: .4s ease-in-out;
-        }
-
-        .social-list>div:hover i {
-            transform: scale(1.5);
-        }
-
-        .facebook-bg {
-            background-color: var(--facebook-color);
-        }
-
-        .google-bg {
-            background-color: var(--google-color);
-        }
-
-        .twitter-bg {
-            background-color: var(--twitter-color);
-        }
-
-        .insta-bg {
-            background-color: var(--insta-color);
-        }
-
-        .pointer {
-            cursor: pointer;
-        }
-
-        .container.sign-in .form.sign-in,
-        .container.sign-in .social-list.sign-in,
-        .container.sign-in .social-list.sign-in>div,
-        .container.sign-up .form.sign-up,
-        .container.sign-up .social-list.sign-up,
-        .container.sign-up .social-list.sign-up>div {
-            transform: scale(1);
+        .container.sign-in .col.sign-in,
+        .container.sign-up .col.sign-up {
+          transform: translateY(0);
         }
 
         .content-row {
-            position: absolute;
-            top: 0;
-            left: 0;
-            pointer-events: none;
-            z-index: 6;
-            width: 100%;
+          align-items: flex-start !important;
+        }
+
+        .content-row .col {
+          transform: translateY(0);
+          background-color: unset;
+        }
+
+        .col {
+          width: 100%;
+          position: absolute;
+          padding: 2rem;
+          background-color: var(--white);
+          border-top-left-radius: 2rem;
+          border-top-right-radius: 2rem;
+          transform: translateY(100%);
+          transition: 1s ease-in-out;
+        }
+
+        .row {
+          align-items: flex-end;
+          justify-content: flex-end;
+        }
+
+        .form,
+        .social-list {
+          box-shadow: none;
+          margin: 0;
+          padding: 0;
         }
 
         .text {
-            margin: 4rem;
-            color: var(--white);
-        }
-
-        .text h2 {
-            font-size: 3.5rem;
-            font-weight: 800;
-            margin: 2rem 0;
-            transition: 1s ease-in-out;
+          margin: 0;
         }
 
         .text p {
-            font-weight: 600;
-            transition: 1s ease-in-out;
-            transition-delay: .2s;
+          display: none;
         }
 
-        .img img {
-            width: 30vw;
-            transition: 1s ease-in-out;
-            transition-delay: .4s;
+        .text h2 {
+          margin: 0.5rem;
+          font-size: 2rem;
         }
 
-        .text.sign-in h2,
-        .text.sign-in p,
-        .img.sign-in img {
-            transform: translateX(-250%);
+        .login-signup-box {
+          margin-bottom: 20%;
+          border-radius: 35px 35px 35px 35px;
+        }
+      }
+
+      /* Color Variables - Yellow Theme */
+      :root {
+        --bs-primary: #ffc107; /* Yellow - main color */
+        --bs-secondary: #ff9800; /* Darker yellow/orange - accent color */
+        --bs-light: #fff9e6; /* Light yellow background */
+        --bs-dark: #333333; /* Dark text color */
+      }
+
+      .bg-primary {
+        background-color: var(--bs-primary) !important;
+      }
+      .bg-secondary {
+        background-color: var(--bs-secondary) !important;
+      }
+      .text-primary {
+        color: var(--bs-primary) !important;
+      }
+      .text-secondary {
+        color: var(--bs-secondary) !important;
+      }
+      .border-primary {
+        border-color: var(--bs-primary) !important;
+      }
+      .border-secondary {
+        border-color: var(--bs-secondary) !important;
+      }
+
+      /*** Spinner Start ***/
+      #spinner {
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.8s ease-out, visibility 0s linear 0.5s;
+        z-index: 99999;
+      }
+
+      #spinner.show {
+        transition: opacity 0.8s ease-out, visibility 0s linear 0s;
+        visibility: visible;
+        opacity: 1;
+      }
+      /*** Spinner End ***/
+
+      /*** Common CSS Start ***/
+      .back-to-top {
+        position: fixed;
+        right: 30px;
+        bottom: 30px;
+        display: flex;
+        width: 45px;
+        height: 45px;
+        align-items: center;
+        justify-content: center;
+        transition: 0.5s;
+        z-index: 99;
+      }
+
+      h1,
+      h2,
+      h3,
+      .h1,
+      .h2,
+      .h3 {
+        font-weight: 200;
+        font-family: "Montserrat", sans-serif;
+      }
+
+      h4,
+      h5,
+      h6,
+      .h4,
+      .h5,
+      .h6 {
+        font-weight: 600;
+        font-family: "Montserrat", sans-serif;
+      }
+
+      .display-1,
+      .display-2,
+      .display-3,
+      .display-4,
+      .display-5,
+      .display-6 {
+        font-weight: 700;
+        font-family: "Fredoka", sans-serif;
+      }
+
+      .display-4,
+      .display-5,
+      .display-6 {
+        font-weight: 600;
+      }
+
+      .wow,
+      .animated {
+        animation-duration: 2s !important;
+      }
+      /*** Common CSS End ***/
+
+      /*** Button Start ***/
+      .btn {
+        font-weight: 600;
+        transition: 0.5s;
+      }
+
+      .btn-square {
+        width: 32px;
+        height: 32px;
+      }
+
+      .btn-sm-square {
+        width: 34px;
+        height: 34px;
+      }
+
+      .btn-md-square {
+        width: 44px;
+        height: 44px;
+      }
+
+      .btn-lg-square {
+        width: 56px;
+        height: 56px;
+      }
+
+      .btn-square,
+      .btn-sm-square,
+      .btn-md-square,
+      .btn-lg-square {
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: normal;
+      }
+
+      .btn.btn-primary {
+        border: 0;
+        color: var(--bs-white);
+      }
+
+      .btn.btn-primary:hover {
+        background: var(--bs-secondary);
+        color: var(--bs-primary);
+      }
+
+      .btn-border-radius {
+        border-radius: 25% 10%;
+      }
+
+      .img-border-radius {
+        border-radius: 50% 20% / 10% 40%;
+      }
+
+      .title-border-radius {
+        border-radius: 10% 30%;
+      }
+      /*** Button End ***/
+
+      /*** Topbar Start ***/
+      .topbar .top-info {
+        font-size: medium;
+        font-weight: 400;
+        font-family: "Montserrat", sans-serif;
+        letter-spacing: 1px;
+        display: flex;
+        align-items: center;
+      }
+
+      .topbar .top-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .topbar .top-link a {
+        margin-right: 10px;
+      }
+
+      .topbar .top-link a:hover {
+        background: var(--bs-secondary) !important;
+      }
+
+      .topbar .top-link a:hover i {
+        color: var(--bs-primary) !important;
+      }
+      /*** Topbar End ***/
+
+      /*** Navbar Start ***/
+      .navbar {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .navbar .navbar-nav .nav-link {
+        padding: 10px 12px;
+        font-size: 16px;
+        font-weight: 600;
+        transition: 0.5s;
+      }
+
+      .navbar .navbar-nav .nav-link:hover,
+      .navbar .navbar-nav .nav-link.active,
+      .fixed-top.bg-white .navbar .navbar-nav .nav-link:hover,
+      .fixed-top.bg-white .navbar .navbar-nav .nav-link.active {
+        color: var(--bs-primary);
+      }
+
+      .navbar .dropdown-toggle::after {
+        border: none;
+        content: "\f107";
+        font-family: "Font Awesome 5 Free";
+        font-weight: 700;
+        vertical-align: middle;
+        margin-left: 8px;
+      }
+
+      @media (min-width: 1200px) {
+        .navbar .nav-item .dropdown-menu {
+          display: block;
+          visibility: hidden;
+          top: 100%;
+          font-weight: 400;
+          font-family: "Fredoka", sans-serif;
+          transform: rotateX(-75deg);
+          transform-origin: 0% 0%;
+          border: 0;
+          transition: 0.5s;
+          opacity: 0;
+        }
+      }
+
+      .dropdown .dropdown-menu a:hover {
+        background: var(--bs-secondary);
+        color: var(--bs-primary);
+      }
+
+      .navbar .nav-item:hover .dropdown-menu {
+        transform: rotateX(0deg);
+        visibility: visible;
+        background: var(--bs-light) !important;
+        border-radius: 10px !important;
+        transition: 0.5s;
+        opacity: 1;
+      }
+
+      #searchModal .modal-content {
+        background: rgba(255, 255, 255, 0.8);
+      }
+      /*** Navbar End ***/
+
+      /*** Hero Header ***/
+      .hero-header,
+      .page-header {
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.05)),
+          url(../img/hero-img.jpg);
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      /*** Hero Header ***/
+
+      /*** About Start ***/
+      .video {
+        position: relative;
+        height: 100%;
+        min-height: 400px;
+        background: linear-gradient(
+            rgba(255, 255, 255, 0.1),
+            rgba(255, 255, 255, 0.1)
+          ),
+          url(../img/about.jpg);
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: 10px;
+      }
+
+      .video .btn-play {
+        position: absolute;
+        z-index: 3;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        box-sizing: content-box;
+        display: block;
+        width: 32px;
+        height: 44px;
+        border-radius: 50%;
+        border: none;
+        outline: none;
+        padding: 18px 20px 18px 28px;
+      }
+
+      .video .btn-play:before {
+        content: "";
+        position: absolute;
+        z-index: 0;
+        left: 50%;
+        top: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        display: block;
+        width: 100px;
+        height: 100px;
+        background: var(--bs-secondary);
+        border-radius: 50%;
+        animation: pulse-border 1500ms ease-out infinite;
+      }
+
+      .video .btn-play:after {
+        content: "";
+        position: absolute;
+        z-index: 1;
+        left: 50%;
+        top: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        display: block;
+        width: 100px;
+        height: 100px;
+        background: var(--bs-primary);
+        border-radius: 50%;
+        transition: all 200ms;
+      }
+
+      .video .btn-play img {
+        position: relative;
+        z-index: 3;
+        max-width: 100%;
+        width: auto;
+        height: auto;
+      }
+
+      .video .btn-play span {
+        display: block;
+        position: relative;
+        z-index: 3;
+        width: 0;
+        height: 0;
+        border-left: 32px solid var(--bs-white);
+        border-top: 22px solid transparent;
+        border-bottom: 22px solid transparent;
+      }
+
+      @keyframes pulse-border {
+        0% {
+          transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1);
+          opacity: 1;
         }
 
-        .text.sign-up h2,
-        .text.sign-up p,
-        .img.sign-up img {
-            transform: translateX(250%);
+        100% {
+          transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1.5);
+          opacity: 0;
         }
+      }
 
-        .container.sign-in .text.sign-in h2,
-        .container.sign-in .text.sign-in p,
-        .container.sign-in .img.sign-in img,
-        .container.sign-up .text.sign-up h2,
-        .container.sign-up .text.sign-up p,
-        .container.sign-up .img.sign-up img {
-            transform: translateX(0);
-        }
+      #videoModal {
+        z-index: 99999;
+      }
 
-        /* BACKGROUND */
+      #videoModal .modal-dialog {
+        position: relative;
+        max-width: 800px;
+        margin: 60px auto 0 auto;
+      }
 
-        .container::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            right: 0;
-            height: 100vh;
-            width: 300vw;
-            transform: translate(35%, 0);
-            background-image: linear-gradient(-45deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            transition: 1s ease-in-out;
-            z-index: 6;
-            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-            border-bottom-right-radius: max(50vw, 50vh);
-            border-top-left-radius: max(50vw, 50vh);
-        }
+      #videoModal .modal-body {
+        position: relative;
+        padding: 0px;
+      }
 
-        .container.sign-in::before {
-            transform: translate(0, 0);
-            right: 50%;
-        }
+      #videoModal .close {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        right: 0px;
+        top: -30px;
+        z-index: 999;
+        font-size: 30px;
+        font-weight: normal;
+        color: #ffffff;
+        background: #000000;
+        opacity: 1;
+      }
 
-        .container.sign-up::before {
-            transform: translate(100%, 0);
-            right: 50%;
-        }
+      .video.border {
+        border-radius: 50% 20% / 10% 40%;
+      }
 
-        /* RESPONSIVE */
+      .about {
+        background: linear-gradient(
+            rgba(255, 255, 255, 0.8),
+            rgba(255, 255, 255, 0.8)
+          ),
+          url(../img/background.jpg);
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      /*** About End ***/
 
-        @media only screen and (max-width: 425px) {
+      /*** Service Start ***/
+      .service {
+        background: linear-gradient(
+          rgba(255, 193, 7, 0.05),
+          rgba(255, 193, 7, 0.2)
+        );
+      }
 
-            .container::before,
-            .container.sign-in::before,
-            .container.sign-up::before {
-                height: 100vh;
-                border-bottom-right-radius: 0;
-                border-top-left-radius: 0;
-                z-index: 0;
-                transform: none;
-                right: 0;
-            }
+      .service .service-item {
+        box-shadow: 0 0 45px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        height: 100%;
+        border-radius: 50% 20% / 10% 40%;
+        transition: 0.5s;
+        position: relative;
+      }
 
+      .service-content::after {
+        position: absolute;
+        content: "";
+        width: 0;
+        height: 100%;
+        top: 0;
+        left: 0;
+        right: auto;
+        background: transparent;
+        border-radius: 50% 20% / 10% 40%;
+        transition: 0.5s;
+      }
 
-            .container.sign-in .col.sign-in,
-            .container.sign-up .col.sign-up {
-                transform: translateY(0);
-            }
+      .service-item:hover {
+        border: 1px solid var(--bs-secondary) !important;
+      }
 
-            .content-row {
-                align-items: flex-start !important;
-            }
+      .service-item:hover .service-content::after {
+        background: var(--bs-secondary);
+        width: 100%;
+        opacity: 1;
+        z-index: 1;
+      }
 
-            .content-row .col {
-                transform: translateY(0);
-                background-color: unset;
-            }
+      .service-item .service-content .service-content-inner {
+        position: relative;
+        z-index: 2;
+      }
 
-            .col {
-                width: 100%;
-                position: absolute;
-                padding: 2rem;
-                background-color: var(--white);
-                border-top-left-radius: 2rem;
-                border-top-right-radius: 2rem;
-                transform: translateY(100%);
-                transition: 1s ease-in-out;
-            }
+      .service-item .service-content-inner i,
+      .service-item .service-content-inner p,
+      .service-item .service-content-inner a.h4 {
+        transition: 0.5s;
+      }
 
-            .row {
-                align-items: flex-end;
-                justify-content: flex-end;
-            }
+      .service-item:hover .service-content-inner i,
+      .service-item:hover .service-content-inner p {
+        color: var(--bs-white) !important;
+      }
+      .service-item:hover .service-content-inner a.h4 {
+        color: var(--bs-primary);
+      }
 
-            .form,
-            .social-list {
-                box-shadow: none;
-                margin: 0;
-                padding: 0;
-            }
+      .service-item:hover .service-content-inner a.btn-primary {
+        background: var(--bs-white) !important;
+        color: var(--bs-primary) !important;
+      }
 
-            .text {
-                margin: 0;
-            }
+      .service-item .service-content-inner a.btn-primary:hover {
+        background: var(--bs-primary) !important;
+        color: var(--bs-white) !important;
+      }
+      /*** Service End ***/
 
-            .text p {
-                display: none;
-            }
+      /*** Programs Start ***/
+      .program {
+        background: linear-gradient(
+          rgba(255, 193, 7, 0.1),
+          rgba(255, 193, 7, 0.1)
+        );
+      }
 
-            .text h2 {
-                margin: .5rem;
-                font-size: 2rem;
-            }
+      .program .program-item .program-img .program-rate {
+        position: absolute;
+        width: 100px;
+        top: -20px;
+        left: 50%;
+        margin-left: -50px;
+        border-radius: 10% / 50%;
+      }
 
-            .login-signup-box {
+      .program .program-item .program-text {
+        padding-top: 150px;
+        margin-top: -125px;
+      }
 
-                margin-bottom: 20%;
-                border-radius: 35px 35px 35px 35px;
-            }
-        }
+      .program .program-item .program-img img,
+      .program .program-item .program-teacher img,
+      .program .program-item:hover .program-text-inner a.h4 {
+        transition: 0.5s;
+      }
+
+      .program .program-item:hover .program-img img,
+      .program .program-item:hover .program-teacher img {
+        transform: scale(1.2);
+      }
+
+      .program .program-item:hover .program-text-inner a.h4 {
+        color: var(--bs-primary) !important;
+      }
+      /*** Programs End ***/
+
+      /*** Events Start ***/
+      .events .events-item {
+        width: 100%;
+        height: 100%;
+        border-radius: 30%;
+        position: relative;
+      }
+
+      .events .events-item .events-inner .events-rate {
+        position: absolute;
+        width: 120px;
+        top: -20px;
+        left: 50%;
+        margin-left: -60px;
+        border-radius: 10% / 50%;
+      }
+
+      .events .events-item .events-inner .events-img .event-overlay {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: 0.5s;
+        z-index: 1;
+        opacity: 0;
+      }
+
+      .events .events-item .events-inner .events-img:hover .event-overlay {
+        opacity: 1;
+      }
+
+      .events .events-item .events-img::after {
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 0;
+        top: 0;
+        left: 0;
+        bottom: auto;
+        background: rgba(255, 193, 7, 0.7);
+        border-radius: 10px;
+        transition: 0.5s;
+      }
+
+      .events .events-item:hover .events-img::after {
+        height: 100%;
+        opacity: 1;
+      }
+
+      .events .events-item .events-text a.h4,
+      .events .events-item .events-img img {
+        transition: 0.5s;
+      }
+
+      .events .events-item:hover .events-text a.h4 {
+        color: var(--bs-primary) !important;
+      }
+
+      .events .events-item:hover .events-img img {
+        transform: scale(1.3);
+      }
+      /*** Events End ***/
+
+      /*** Blog Start ***/
+      .blog .blog-item .blog-img::after {
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 0;
+        top: 0;
+        left: 0;
+        bottom: auto;
+        background: rgba(255, 193, 7, 0.7);
+        border-radius: 10px 10px 0 0;
+        transition: 0.5s;
+      }
+
+      .blog .blog-item:hover .blog-img::after {
+        height: 100%;
+        opacity: 1;
+      }
+
+      .blog .blog-item .blog-date-comments {
+        padding-top: 150px !important;
+        margin-top: -125px;
+      }
+
+      .blog .blog-item .blog-img img,
+      .blog .blog-item .blog-content img,
+      .blog .blog-item .blog-text-inner a.h4 {
+        transition: 0.5s;
+      }
+
+      .blog .blog-item:hover .blog-img img {
+        transform: scale(1.3);
+      }
+
+      .blog .blog-item:hover .blog-content img {
+        transform: scale(1.3);
+      }
+
+      .blog .blog-item:hover .blog-text-inner a.h4 {
+        color: var(--bs-primary);
+      }
+      /*** Blog End ***/
+
+      /*** Team Start ***/
+      .team .team-item {
+        position: relative;
+        width: 100%;
+        height: 100%;
+      }
+
+      .team .team-item .team-icon {
+        position: absolute;
+        bottom: 120px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .team .team-item .team-icon a.share-link {
+        opacity: 0;
+        transition: 0.5s;
+      }
+
+      .team .team-item:hover .team-icon a.share-link {
+        opacity: 1;
+      }
+
+      .team .team-item .team-content,
+      .team .team-item .team-content h4,
+      .team .team-item .team-content p {
+        transition: 0.5s;
+      }
+
+      .team .team-item:hover .team-content {
+        background: var(--bs-primary) !important;
+        border-radius: 0 0 10px 10px;
+      }
+
+      .team .team-item:hover .team-content h4 {
+        color: var(--bs-white) !important;
+      }
+
+      .team .team-item:hover .team-content p {
+        color: var(--bs-dark) !important;
+      }
+      /*** Team end ***/
+
+      /*** Testimonial Start ***/
+      .testimonial .testimonial-carousel {
+        position: relative;
+      }
+
+      .testimonial .testimonial-carousel .owl-dots {
+        margin-top: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .testimonial .testimonial-carousel .owl-dot {
+        position: relative;
+        display: inline-block;
+        margin: 0 5px;
+        width: 15px;
+        height: 15px;
+        background: var(--bs-primary);
+        border-radius: 10px;
+        transition: 0.5s;
+      }
+
+      .testimonial .testimonial-carousel .owl-dot.active {
+        width: 30px;
+        background: var(--bs-secondary);
+      }
+      /*** Testimonial End ***/
+
+      /*** Footer Start ***/
+      .footer {
+        background: linear-gradient(
+            rgba(255, 255, 255, 0.8),
+            rgba(255, 255, 255, 1)
+          ),
+          url(../img/background.jpg);
+        background-position: top center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+
+      .footer .footer-galary-img img {
+        width: 100%;
+        border-style: dotted;
+        border-color: var(--bs-primary);
+        transition: 0.5s;
+      }
+
+      .footer .footer-galary-img img:hover {
+        transform: scale(1.2);
+      }
+
+      .footer-item a.text-body:hover {
+        color: var(--bs-secondary) !important;
+      }
+      /*** Footer End ***/
     </style>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="" name="keywords" />
+    <meta content="" name="description" />
 
     <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Montserrat:wght@200;400;600&display=swap"
-        rel="stylesheet">
-
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Montserrat:wght@200;400;600&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- Template Stylesheet -->
-    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
 
-    <link href="css/style.css" rel="stylesheet">
     <!-- St. Mary Logo -->
-    <link rel="icon" type="image/png" href="img/St.MaryLogo.png">
-</head>
+    <link rel="icon" type="image/png" href="img/St.MaryLogo.png" />
+  </head>
 
-<body>
-
-
+  <body>
     <div id="container" class="container">
-        <!-- FORM SECTION -->
-
-        <div class="row">
-            <!-- SIGN UP -->
-            <div class="login-signup-box col align-items-center flex-col sign-up">
-                <div class="form-wrapper align-items-center">
-                    <div class="form sign-up">
-                        <div class="input-group">
-                            <i class='bx bxs-user'></i>
-                            <input type="text" placeholder="Username">
-                        </div>
-                        <div class="input-group">
-                            <i class='bx bx-mail-send'></i>
-                            <input type="email" placeholder="Email">
-                        </div>
-                        <div class="input-group">
-                            <i class='bx bxs-lock-alt'></i>
-                            <input type="password" placeholder="Password">
-                        </div>
-                        <div class="input-group">
-                            <i class='bx bxs-lock-alt'></i>
-                            <input type="password" placeholder="Confirm password">
-                        </div>
-                        <button>
-                            Sign up
-                        </button>
-                        <p>
-                            <span>
-                                Already have an account?
-                            </span>
-                            <b onclick="toggle()" class="pointer">
-                                Sign in here
-                            </b>
-                        </p>
-                    </div>
-                </div>
-
+      <!-- FORM SECTION -->
+      <div class="row">
+        <!-- SIGN UP -->
+        <div class="login-signup-box col align-items-center flex-col sign-up">
+          <div class="form-wrapper align-items-center">
+            <div class="form sign-up">
+              <div class="input-group">
+                <i class="bx bxs-user"></i>
+                <input type="text" placeholder="Username" />
+              </div>
+              <div class="input-group">
+                <i class="bx bx-mail-send"></i>
+                <input type="email" placeholder="Email" />
+              </div>
+              <div class="input-group">
+                <i class="bx bxs-lock-alt"></i>
+                <input type="password" placeholder="Password" />
+              </div>
+              <div class="input-group">
+                <i class="bx bxs-lock-alt"></i>
+                <input type="password" placeholder="Confirm password" />
+              </div>
+              <button>Sign up</button>
+              <p>
+                <span> Already have an account? </span>
+                <b onclick="toggle()" class="pointer"> Sign in here </b>
+              </p>
             </div>
-            <!-- END SIGN UP -->
-            <!-- SIGN IN -->
-            <div class=" login-signup-box col align-items-center flex-col sign-in">
-                <div class="form-wrapper align-items-center">
-                    <div class="form sign-in">
-                        <div class="input-group">
-                            <i class='bx bxs-user'></i>
-                            <input type="text" placeholder="Username">
-                        </div>
-                        <div class="input-group">
-                            <i class='bx bxs-lock-alt'></i>
-                            <input type="password" placeholder="Password">
-                        </div>
-                        <button>
-                            Sign in
-                        </button>
-                        <p>
-                            <b>
-                                
-                                <a  style="color: #000000;" href="OTPVerification.html">Login with OTP?</a>
-
-                            </b>
-                        </p>
-                        <p>
-                            <span>
-                                Don't have an account?
-                            </span>
-                            <b onclick="toggle()" class="pointer">
-                                Sign up here
-                            </b>
-                        </p>
-
-                        <a href="index.html"><button>Back</button></a>
-
-                    </div>
-                </div>
-                <div class="form-wrapper">
-
-                </div>
-            </div>
-            <!-- END SIGN IN -->
+          </div>
         </div>
-        <!-- END FORM SECTION -->
-        <!-- CONTENT SECTION -->
-        <div class="row content-row">
-            <!-- SIGN IN CONTENT -->
-            <div class="col align-items-center flex-col">
-                <div class="text sign-in">
-                    <h2>
-
-                        <div>
-
-                            Welcome
-                        </div>
-                        <div>
-
-                            <img style="height:190px;width:auto" src="img/St.MaryLogo.png" alt="St. Mary Logo"
-                                class="logo-img">
-                        </div>
-                    </h2>
-
-
-                </div>
-                <div class="img sign-in">
-
-                </div>
+        <!-- END SIGN UP -->
+        <!-- SIGN IN -->
+        <div class="login-signup-box col align-items-center flex-col sign-in">
+          <div class="form-wrapper align-items-center">
+            <div class="form sign-in">
+              <div class="input-group">
+                <i class="bx bxs-user"></i>
+                <input type="text" placeholder="Username" />
+              </div>
+              <div class="input-group">
+                <i class="bx bxs-lock-alt"></i>
+                <input type="password" placeholder="Password" />
+              </div>
+              <button>Sign in</button>
+              <p>
+                <b> Forgot password? </b>
+              </p>
+              <p>
+                <b>
+                  <a style="color: #000000" href="OTPVerification.html"
+                    >Login with OTP?</a
+                  >
+                </b>
+              </p>
+              <p>
+                <span> Don't have an account? </span>
+                <b onclick="toggle()" class="pointer"> Sign up here </b>
+              </p>
+              <a href="index.html"><button>Back</button></a>
             </div>
-            <!-- END SIGN IN CONTENT -->
-            <!-- SIGN UP CONTENT -->
-            <div class="col align-items-center flex-col">
-                <div class="img sign-up">
-
-                </div>
-                <div class="text sign-up">
-                    <h2>
-                        Join with us
-                        <div>
-
-                            <img style="height:190px;width:auto" src="img/St.MaryLogo.png" alt="St. Mary Logo"
-                                class="logo-img">
-                        </div>
-                    </h2>
-
-
-                </div>
-            </div>
-            <!-- END SIGN UP CONTENT -->
+          </div>
+          <div class="form-wrapper"></div>
         </div>
-        <!-- END CONTENT SECTION -->
+        <!-- END SIGN IN -->
+      </div>
+      <!-- END FORM SECTION -->
+      <!-- CONTENT SECTION -->
+      <div class="row content-row">
+        <!-- SIGN IN CONTENT -->
+        <div class="col align-items-center flex-col">
+          <div class="text sign-in">
+            <h2>
+              <div>Welcome</div>
+              <div>
+                <img
+                  style="height: 190px; width: auto"
+                  src="img/St.MaryLogo.png"
+                  alt="St. Mary Logo"
+                  class="logo-img"
+                />
+              </div>
+            </h2>
+          </div>
+          <div class="img sign-in"></div>
+        </div>
+        <!-- END SIGN IN CONTENT -->
+        <!-- SIGN UP CONTENT -->
+        <div class="col align-items-center flex-col">
+          <div class="img sign-up"></div>
+          <div class="text sign-up">
+            <h2>
+              Join with us
+              <div>
+                <img
+                  style="height: 190px; width: auto"
+                  src="img/St.MaryLogo.png"
+                  alt="St. Mary Logo"
+                  class="logo-img"
+                />
+              </div>
+            </h2>
+          </div>
+        </div>
+        <!-- END SIGN UP CONTENT -->
+      </div>
+      <!-- END CONTENT SECTION -->
     </div>
-</body>
-<script>
-    let container = document.getElementById('container')
+  </body>
+  <script>
+    let container = document.getElementById("container");
 
     toggle = () => {
-        container.classList.toggle('sign-in')
-        container.classList.toggle('sign-up')
-    }
+      container.classList.toggle("sign-in");
+      container.classList.toggle("sign-up");
+    };
 
     setTimeout(() => {
-        container.classList.add('sign-in')
-    }, 200)
-</script>
-
+      container.classList.add("sign-in");
+    }, 200);
+  </script>
 </html>

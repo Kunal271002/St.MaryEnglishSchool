@@ -1,3 +1,17 @@
+/*** Color Variables - Yellow Theme ***/
+:root {
+    --bs-primary: #ffc107;  /* Yellow - main color */
+    --bs-secondary: #ff9800; /* Darker yellow/orange - accent color */
+    --bs-light: #fff9e6;     /* Light yellow background */
+    --bs-dark: #333333;      /* Dark text color */
+}
+
+.bg-primary { background-color: var(--bs-primary) !important; }
+.bg-secondary { background-color: var(--bs-secondary) !important; }
+.text-primary { color: var(--bs-primary) !important; }
+.text-secondary { color: var(--bs-secondary) !important; }
+.border-primary { border-color: var(--bs-primary) !important; }
+.border-secondary { border-color: var(--bs-secondary) !important; }
 
 /*** Spinner Start ***/
 #spinner {
@@ -368,9 +382,9 @@ h6,
 /*** About End ***/
 
 
-/*** service Start ***/
+/*** Service Start ***/
 .service {
-    background: linear-gradient(rgba(255, 72, 128, 0.05), rgba(255, 72, 128, 0.2));
+    background: linear-gradient(rgba(255, 193, 7, 0.05), rgba(255, 193, 7, 0.2));
 }
 
 .service .service-item {
@@ -439,7 +453,7 @@ h6,
 
 /*** Programs Start ***/
 .program {
-    background: linear-gradient(rgba(255, 72, 128, 0.1), rgba(255, 72, 128, 0.1));
+    background: linear-gradient(rgba(255, 193, 7, 0.1), rgba(255, 193, 7, 0.1));
 }
 
 .program .program-item .program-img .program-rate {
@@ -512,7 +526,7 @@ h6,
     top: 0;
     left: 0;
     bottom: auto;
-    background: rgba(77, 101, 249, .7);
+    background: rgba(255, 193, 7, 0.7);
     border-radius: 10px;
     transition: 0.5s;
 }
@@ -546,7 +560,7 @@ h6,
     top: 0;
     left: 0;
     bottom: auto;
-    background: rgba(77, 101, 249, .7);
+    background: rgba(255, 193, 7, 0.7);
     border-radius: 10px 10px 0 0;
     transition: 0.5s;
 }
@@ -626,7 +640,7 @@ h6,
 /*** Team end ***/
 
 
-/*** testimonial Start ***/
+/*** Testimonial Start ***/
 .testimonial .testimonial-carousel {
     position: relative;
     
@@ -654,7 +668,7 @@ h6,
     width: 30px;
     background: var(--bs-secondary);
 }
-/*** testimonial End ***/
+/*** Testimonial End ***/
 
 
 /*** Footer Start ***/

@@ -7,8 +7,8 @@
     <title>St.Mary's English School - OTP Login</title>
     <style>
         :root {
-            --primary-color: #ff4880;
-            --secondary-color: #ff4880;
+            --primary-color:  #ffc107;
+            --secondary-color: #ff9800;
             --black: #000000;
             --white: #ffffff;
             --gray: #efefef;
@@ -381,6 +381,689 @@
                 padding: 1rem;
             }
         }
+
+        /* Color Variables - Yellow Theme */
+        :root {
+            --bs-primary: #ffc107;  /* Yellow - main color */
+            --bs-secondary: #ff9800; /* Darker yellow/orange - accent color */
+            --bs-light: #fff9e6;     /* Light yellow background */
+            --bs-dark: #333333;      /* Dark text color */
+        }
+
+        .bg-primary { background-color: var(--bs-primary) !important; }
+        .bg-secondary { background-color: var(--bs-secondary) !important; }
+        .text-primary { color: var(--bs-primary) !important; }
+        .text-secondary { color: var(--bs-secondary) !important; }
+        .border-primary { border-color: var(--bs-primary) !important; }
+        .border-secondary { border-color: var(--bs-secondary) !important; }
+
+        /*** Spinner Start ***/
+        #spinner {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity .8s ease-out, visibility 0s linear .5s;
+            z-index: 99999;
+        }
+
+        #spinner.show {
+            transition: opacity .8s ease-out, visibility 0s linear .0s;
+            visibility: visible;
+            opacity: 1;
+        }
+        /*** Spinner End ***/
+
+        /*** Common CSS Start ***/
+        .back-to-top {
+            position: fixed;
+            right: 30px;
+            bottom: 30px;
+            display: flex;
+            width: 45px;
+            height: 45px;
+            align-items: center;
+            justify-content: center;
+            transition: 0.5s;
+            z-index: 99;
+        }
+
+        h1,
+        h2,
+        h3,
+        .h1,
+        .h2,
+        .h3 {
+            font-weight: 200;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        h4,
+        h5,
+        h6,
+        .h4,
+        .h5,
+        .h6 {
+            font-weight: 600;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .display-1,
+        .display-2,
+        .display-3,
+        .display-4,
+        .display-5,
+        .display-6 {
+            font-weight: 700;
+            font-family: 'Fredoka', sans-serif;
+        }
+
+        .display-4,
+        .display-5,
+        .display-6 {
+            font-weight: 600;
+        }
+
+        .wow,
+        .animated {
+            animation-duration: 2s !important;
+        }
+        /*** Common CSS End ***/
+
+        /*** Button Start ***/
+        .btn {
+            font-weight: 600;
+            transition: .5s;
+        }
+
+        .btn-square {
+            width: 32px;
+            height: 32px;
+        }
+
+        .btn-sm-square {
+            width: 34px;
+            height: 34px;
+        }
+
+        .btn-md-square {
+            width: 44px;
+            height: 44px;
+        }
+
+        .btn-lg-square {
+            width: 56px;
+            height: 56px;
+        }
+
+        .btn-square,
+        .btn-sm-square,
+        .btn-md-square,
+        .btn-lg-square {
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: normal;
+        }
+
+        .btn.btn-primary {
+            border: 0;
+            color: var(--bs-white);
+        }
+
+        .btn.btn-primary:hover {
+            background: var(--bs-secondary);
+            color: var(--bs-primary);
+        }
+
+        .btn-border-radius {
+            border-radius: 25% 10%;
+        }
+
+        .img-border-radius {
+            border-radius: 50% 20% / 10% 40%;
+        }
+
+        .title-border-radius {
+            border-radius: 10% 30%;
+        }
+        /*** Button End ***/
+
+        /*** Topbar Start ***/
+        .topbar .top-info {
+            font-size: medium;
+            font-weight: 400;
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+        }
+
+        .topbar .top-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .topbar .top-link a {
+            margin-right: 10px;
+        }
+
+        .topbar .top-link a:hover {
+            background: var(--bs-secondary) !important;
+        }
+
+        .topbar .top-link a:hover i {
+            color: var(--bs-primary) !important;
+        }
+        /*** Topbar End ***/
+
+        /*** Navbar Start ***/
+        .navbar {
+            border-bottom: 1px solid rgba(255, 255, 255, .1);
+        }
+
+        .navbar .navbar-nav .nav-link {
+            padding: 10px 12px;
+            font-size: 16px;
+            font-weight: 600;
+            transition: .5s;
+        }
+
+        .navbar .navbar-nav .nav-link:hover,
+        .navbar .navbar-nav .nav-link.active,
+        .fixed-top.bg-white .navbar .navbar-nav .nav-link:hover,
+        .fixed-top.bg-white .navbar .navbar-nav .nav-link.active {
+            color: var(--bs-primary);
+        }
+
+        .navbar .dropdown-toggle::after {
+            border: none;
+            content: "\f107";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 700;
+            vertical-align: middle;
+            margin-left: 8px;
+        }
+
+        @media (min-width: 1200px) {
+            .navbar .nav-item .dropdown-menu {
+                display: block;
+                visibility: hidden;
+                top: 100%;
+                font-weight: 400;
+                font-family: 'Fredoka', sans-serif;
+                transform: rotateX(-75deg);
+                transform-origin: 0% 0%;
+                border: 0;
+                transition: .5s;
+                opacity: 0;
+            }
+        }
+
+        .dropdown .dropdown-menu a:hover {
+            background: var(--bs-secondary);
+            color: var(--bs-primary);
+        }
+
+        .navbar .nav-item:hover .dropdown-menu {
+            transform: rotateX(0deg);
+            visibility: visible;
+            background: var(--bs-light) !important;
+            border-radius: 10px !important;
+            transition: .5s;
+            opacity: 1;
+        }
+
+        #searchModal .modal-content {
+            background: rgba(255, 255, 255, .8);
+        }
+        /*** Navbar End ***/
+
+        /*** Hero Header ***/
+        .hero-header,
+        .page-header {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.05)), url(../img/hero-img.jpg);
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        /*** Hero Header ***/
+
+        /*** About Start ***/
+        .video {
+            position: relative;
+            height: 100%;
+            min-height: 400px;
+            background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), url(../img/about.jpg);
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            border-radius: 10px;
+        }
+
+        .video .btn-play {
+            position: absolute;
+            z-index: 3;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            box-sizing: content-box;
+            display: block;
+            width: 32px;
+            height: 44px;
+            border-radius: 50%;
+            border: none;
+            outline: none;
+            padding: 18px 20px 18px 28px;
+        }
+
+        .video .btn-play:before {
+            content: "";
+            position: absolute;
+            z-index: 0;
+            left: 50%;
+            top: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            display: block;
+            width: 100px;
+            height: 100px;
+            background: var(--bs-secondary);
+            border-radius: 50%;
+            animation: pulse-border 1500ms ease-out infinite;
+        }
+
+        .video .btn-play:after {
+            content: "";
+            position: absolute;
+            z-index: 1;
+            left: 50%;
+            top: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            display: block;
+            width: 100px;
+            height: 100px;
+            background: var(--bs-primary);
+            border-radius: 50%;
+            transition: all 200ms;
+        }
+
+        .video .btn-play img {
+            position: relative;
+            z-index: 3;
+            max-width: 100%;
+            width: auto;
+            height: auto;
+        }
+
+        .video .btn-play span {
+            display: block;
+            position: relative;
+            z-index: 3;
+            width: 0;
+            height: 0;
+            border-left: 32px solid var(--bs-white);
+            border-top: 22px solid transparent;
+            border-bottom: 22px solid transparent;
+        }
+
+        @keyframes pulse-border {
+            0% {
+                transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        #videoModal {
+            z-index: 99999;
+        }
+
+        #videoModal .modal-dialog {
+            position: relative;
+            max-width: 800px;
+            margin: 60px auto 0 auto;
+        }
+
+        #videoModal .modal-body {
+            position: relative;
+            padding: 0px;
+        }
+
+        #videoModal .close {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            right: 0px;
+            top: -30px;
+            z-index: 999;
+            font-size: 30px;
+            font-weight: normal;
+            color: #FFFFFF;
+            background: #000000;
+            opacity: 1;
+        }
+
+        .video.border {
+            border-radius: 50% 20% / 10% 40%;
+        }
+
+        .about {
+            background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url(../img/background.jpg);
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        /*** About End ***/
+
+        /*** Service Start ***/
+        .service {
+            background: linear-gradient(rgba(255, 193, 7, 0.05), rgba(255, 193, 7, 0.2));
+        }
+
+        .service .service-item {
+            box-shadow: 0 0 45px rgba(0, 0, 0, .1);
+            width: 100%;
+            height: 100%;
+            border-radius: 50% 20% / 10% 40%;
+            transition: 0.5s;
+            position: relative;
+        }
+
+        .service-content::after {
+            position: absolute;
+            content: "";
+            width: 0;
+            height: 100%;
+            top: 0;
+            left: 0;
+            right: auto;
+            background: transparent;
+            border-radius: 50% 20% / 10% 40%;
+            transition: .5s;
+        }
+
+        .service-item:hover {
+            border: 1px solid var(--bs-secondary) !important;
+        }
+
+        .service-item:hover .service-content::after {
+            background: var(--bs-secondary);
+            width: 100%;
+            opacity: 1;
+            z-index: 1;
+        }
+
+        .service-item .service-content .service-content-inner {
+            position: relative;
+            z-index: 2;
+        }
+
+        .service-item .service-content-inner i,
+        .service-item .service-content-inner p,
+        .service-item .service-content-inner a.h4 {
+            transition: 0.5s;
+        }
+
+        .service-item:hover .service-content-inner i,
+        .service-item:hover .service-content-inner p {
+            color: var(--bs-white) !important;
+        }
+        .service-item:hover .service-content-inner a.h4 {
+            color: var(--bs-primary);
+        }
+
+        .service-item:hover .service-content-inner a.btn-primary {
+            background: var(--bs-white) !important;
+            color: var(--bs-primary) !important;
+        }
+
+        .service-item .service-content-inner a.btn-primary:hover {
+            background: var(--bs-primary) !important;
+            color: var(--bs-white) !important;
+        }
+        /*** Service End ***/
+
+        /*** Programs Start ***/
+        .program {
+            background: linear-gradient(rgba(255, 193, 7, 0.1), rgba(255, 193, 7, 0.1));
+        }
+
+        .program .program-item .program-img .program-rate {
+            position: absolute;
+            width: 100px; 
+            top: -20px; 
+            left: 50%; 
+            margin-left: -50px; 
+            border-radius: 10% / 50%;
+        }
+
+        .program .program-item .program-text {
+            padding-top: 150px; 
+            margin-top: -125px;
+        }
+
+        .program .program-item .program-img img,
+        .program .program-item .program-teacher img,
+        .program .program-item:hover .program-text-inner a.h4 {
+            transition: 0.5s;
+        }
+
+        .program .program-item:hover .program-img img,
+        .program .program-item:hover .program-teacher img {
+            transform: scale(1.2);
+        }
+
+        .program .program-item:hover .program-text-inner a.h4 {
+            color: var(--bs-primary) !important;
+        }
+        /*** Programs End ***/
+
+        /*** Events Start ***/
+        .events .events-item {
+            width: 100%;
+            height: 100%;
+            border-radius: 30%;
+            position: relative;
+        }
+
+        .events .events-item .events-inner .events-rate {
+            position: absolute;
+            width: 120px; 
+            top: -20px; 
+            left: 50%; 
+            margin-left: -60px; 
+            border-radius: 10% / 50%;
+        }
+
+        .events .events-item .events-inner .events-img .event-overlay {
+            position: absolute;
+            top: 50%; 
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: 0.5s;
+            z-index: 1;
+            opacity: 0;
+        }
+
+        .events .events-item .events-inner .events-img:hover .event-overlay {
+            opacity: 1;
+        }
+
+        .events .events-item .events-img::after {
+            position: absolute;
+            content: "";
+            width: 100%;
+            height: 0;
+            top: 0;
+            left: 0;
+            bottom: auto;
+            background: rgba(255, 193, 7, 0.7);
+            border-radius: 10px;
+            transition: 0.5s;
+        }
+
+        .events .events-item:hover .events-img::after {
+            height: 100%;
+            opacity: 1;
+        }
+
+        .events .events-item .events-text a.h4,
+        .events .events-item .events-img img {
+            transition: 0.5s;
+        }
+
+        .events .events-item:hover .events-text a.h4 {
+            color: var(--bs-primary) !important;
+        }
+
+        .events .events-item:hover .events-img img {
+            transform: scale(1.3);
+        }
+        /*** Events End ***/
+
+        /*** Blog Start ***/
+        .blog .blog-item .blog-img::after {
+            position: absolute;
+            content: "";
+            width: 100%;
+            height: 0;
+            top: 0;
+            left: 0;
+            bottom: auto;
+            background: rgba(255, 193, 7, 0.7);
+            border-radius: 10px 10px 0 0;
+            transition: 0.5s;
+        }
+
+        .blog .blog-item:hover .blog-img::after {
+            height: 100%;
+            opacity: 1;
+        }
+
+        .blog .blog-item .blog-date-comments {
+            padding-top: 150px !important; 
+            margin-top: -125px;
+        }
+
+        .blog .blog-item .blog-img img,
+        .blog .blog-item .blog-content img,
+        .blog .blog-item .blog-text-inner a.h4 {
+            transition: 0.5s;
+        }
+
+        .blog .blog-item:hover .blog-img img {
+            transform: scale(1.3);
+        }
+
+        .blog .blog-item:hover .blog-content img {
+            transform: scale(1.3);
+        }
+
+        .blog .blog-item:hover .blog-text-inner a.h4 {
+            color: var(--bs-primary);
+        }
+        /*** Blog End ***/
+
+        /*** Team Start ***/
+        .team .team-item {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .team .team-item .team-icon {
+            position: absolute;
+            bottom: 120px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .team .team-item .team-icon a.share-link {
+            opacity: 0;
+            transition: 0.5s;
+        }
+
+        .team .team-item:hover .team-icon a.share-link {
+            opacity: 1;
+        }
+
+        .team .team-item .team-content,
+        .team .team-item .team-content h4,
+        .team .team-item .team-content p {
+            transition: 0.5s;
+        }
+
+        .team .team-item:hover .team-content {
+            background: var(--bs-primary) !important;
+            border-radius: 0 0 10px 10px;
+        }
+
+        .team .team-item:hover .team-content h4 {
+            color: var(--bs-white) !important;
+        }
+
+        .team .team-item:hover .team-content p {
+            color: var(--bs-dark) !important;
+        }
+        /*** Team end ***/
+
+        /*** Testimonial Start ***/
+        .testimonial .testimonial-carousel {
+            position: relative;
+            
+        }
+
+        .testimonial .testimonial-carousel .owl-dots {
+            margin-top: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .testimonial .testimonial-carousel .owl-dot {
+            position: relative;
+            display: inline-block;
+            margin: 0 5px;
+            width: 15px;
+            height: 15px;
+            background: var(--bs-primary);
+            border-radius: 10px;
+            transition: 0.5s;
+        }
+
+        .testimonial .testimonial-carousel .owl-dot.active {
+            width: 30px;
+            background: var(--bs-secondary);
+        }
+        /*** Testimonial End ***/
+
+        /*** Footer Start ***/
+        .footer {
+            background: linear-gradient(rgba(255, 255, 255, .8), rgba(255, 255, 255, 1)), url(../img/background.jpg);
+            background-position: top center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .footer .footer-galary-img img {
+            width: 100%;
+            border-style: dotted; 
+            border-color: var(--bs-primary);
+            transition: 0.5s;
+        }
+
+        .footer .footer-galary-img img:hover {
+            transform: scale(1.2);
+        }
+
+        .footer-item a.text-body:hover {
+            color: var(--bs-secondary) !important;
+        }
+        /*** Footer End ***/
     </style>
     <!-- Icons -->
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
@@ -518,440 +1201,4 @@
             otpInputs.forEach((input, index) => {
                 // Handle input event
                 input.addEventListener('input', function (e) {
-                    const value = e.target.value;
-
-                    // Only allow numbers
-                    if (value && !/^\d$/.test(value)) {
-                        e.target.value = '';
-                        return;
-                    }
-
-                    // Add filled class if value exists
-                    if (value) {
-                        e.target.classList.add('filled');
-
-                        // Auto-focus next input if available
-                        if (index < otpInputs.length - 1) {
-                            otpInputs[index + 1].focus();
-                        }
-                    } else {
-                        e.target.classList.remove('filled');
-                    }
-
-                    // Check if all OTP inputs are filled
-                    checkOTPCompletion();
-                });
-
-                // Handle keydown for backspace navigation
-                input.addEventListener('keydown', function (e) {
-                    // If backspace is pressed and input is empty, go to previous input
-                    if (e.key === 'Backspace' && !e.target.value && index > 0) {
-                        otpInputs[index - 1].focus();
-                    }
-                });
-
-                // Handle paste event for pasting complete OTP
-                input.addEventListener('paste', function (e) {
-                    e.preventDefault();
-                    const pastedData = e.clipboardData.getData('text').trim();
-
-                    // If pasted data is 6 digits, fill all inputs
-                    if (/^\d{6}$/.test(pastedData)) {
-                        for (let i = 0; i < Math.min(pastedData.length, otpInputs.length); i++) {
-                            otpInputs[i].value = pastedData[i];
-                            otpInputs[i].classList.add('filled');
-                        }
-
-                        // Focus on last input
-                        otpInputs[Math.min(pastedData.length - 1, otpInputs.length - 1)].focus();
-
-                        // Check completion
-                        checkOTPCompletion();
-                    }
-                });
-            });
-        }
-
-        // Send OTP function
-        function sendOTP() {
-            const emailInput = document.getElementById('email-input').value.trim();
-            const mobileInput = document.getElementById('mobile-input').value.trim();
-
-            // Validate input
-            if (!emailInput && !mobileInput) {
-                showError("Please enter either email or mobile number");
-                return;
-            }
-
-            if (emailInput && (!emailInput.includes('@') || !emailInput.includes('.'))) {
-                showError("Please enter a valid email address");
-                return;
-            }
-
-            // Set user contact for display
-            userContact = emailInput || mobileInput;
-
-            // Generate OTP (in real app, this would come from server)
-            generatedOTP = Math.floor(100000 + Math.random() * 900000).toString();
-            console.log("Generated OTP (for demo):", generatedOTP);
-
-            // Move to step 2
-            document.getElementById('step1-form').classList.remove('active');
-            document.getElementById('step2-form').classList.add('active');
-
-            // Update step indicator
-            document.getElementById('step1').classList.remove('active');
-            document.getElementById('step1').classList.add('completed');
-            document.getElementById('step2').classList.add('active');
-
-            // Update contact display
-            document.getElementById('contact-display').textContent = userContact;
-
-            // Start countdown timer
-            startCountdown();
-
-            // Show success message (simulating OTP sent)
-            showMessage("OTP is " + generatedOTP, "info");
-
-            // Focus on first OTP input
-            setTimeout(() => {
-                document.querySelector('.otp-input[data-index="0"]').focus();
-            }, 300);
-        }
-
-        // Start countdown timer
-        function startCountdown() {
-            countdownSeconds = 180;
-            clearInterval(timerInterval);
-
-            const countdownElement = document.getElementById('countdown');
-            const timerElement = document.getElementById('timer');
-            const resendElement = document.getElementById('resend-otp-link');
-
-            timerInterval = setInterval(() => {
-                const minutes = Math.floor(countdownSeconds / 60);
-                const seconds = countdownSeconds % 60;
-
-                countdownElement.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-
-                // Change color when less than 30 seconds
-                if (countdownSeconds <= 30) {
-                    timerElement.classList.add('highlight');
-                }
-
-                // When timer reaches 0
-                if (countdownSeconds <= 0) {
-                    clearInterval(timerInterval);
-                    countdownElement.textContent = "00:00";
-                    timerElement.textContent = "OTP expired";
-                    resendElement.classList.remove('disabled');
-                    canResendOTP = true;
-                    return;
-                }
-
-                countdownSeconds--;
-            }, 1000);
-
-            // Reset resend button
-            resendElement.classList.add('disabled');
-            canResendOTP = false;
-        }
-
-        // Resend OTP
-        function resendOTP() {
-            if (!canResendOTP) return;
-
-            // Generate new OTP
-            generatedOTP = Math.floor(100000 + Math.random() * 900000).toString();
-            console.log("New OTP (for demo):", generatedOTP);
-
-            // Restart timer
-            startCountdown();
-
-            // Clear OTP inputs
-            const otpInputs = document.querySelectorAll('.otp-input');
-            otpInputs.forEach(input => {
-                input.value = '';
-                input.classList.remove('filled');
-            });
-
-            // Disable verify button
-            document.getElementById('verify-otp-btn').disabled = true;
-
-            // Show message
-            showMessage("New OTP sent to " + userContact, "info");
-
-            // Focus on first input
-            document.querySelector('.otp-input[data-index="0"]').focus();
-        }
-
-        // Move to next OTP input (for backward compatibility with inline oninput)
-        function moveToNext(current, nextIndex) {
-            // This function is now deprecated in favor of the event listener approach
-            // but kept for backward compatibility
-            const value = current.value;
-
-            // Only allow numbers
-            if (value && !/^\d$/.test(value)) {
-                current.value = '';
-                return;
-            }
-
-            // Add filled class if value exists
-            if (value) {
-                current.classList.add('filled');
-
-                // Auto-focus next input if available
-                const otpInputs = document.querySelectorAll('.otp-input');
-                if (nextIndex <= otpInputs.length) {
-                    const nextInput = document.querySelector(`.otp-input[data-index="${nextIndex - 1}"]`);
-                    if (nextInput) {
-                        nextInput.focus();
-                    }
-                }
-            } else {
-                current.classList.remove('filled');
-            }
-
-            // Check if all OTP inputs are filled
-            checkOTPCompletion();
-        }
-
-        // Check OTP completion
-        function checkOTPCompletion() {
-            const otpInputs = document.querySelectorAll('.otp-input');
-            let allFilled = true;
-
-            for (let input of otpInputs) {
-                if (!input.value) {
-                    allFilled = false;
-                    break;
-                }
-            }
-
-            document.getElementById('verify-otp-btn').disabled = !allFilled;
-        }
-
-        // Verify OTP
-        function verifyOTP() {
-            // Get entered OTP
-            const otpInputs = document.querySelectorAll('.otp-input');
-            let enteredOTP = '';
-
-            for (let input of otpInputs) {
-                enteredOTP += input.value;
-            }
-
-            // Validate OTP (demo: compare with generatedOTP)
-            if (enteredOTP === generatedOTP) {
-                // Success
-                document.getElementById('success-message').style.display = 'block';
-                document.getElementById('error-message').style.display = 'none';
-                document.getElementById('verify-otp-btn').disabled = true;
-
-                // Clear timer
-                clearInterval(timerInterval);
-
-                // Move to success step after delay
-                setTimeout(() => {
-                    document.getElementById('step2-form').classList.remove('active');
-                    document.getElementById('success-step').style.display = 'block';
-
-                    // Update step indicator
-                    document.getElementById('step2').classList.remove('active');
-                    document.getElementById('step2').classList.add('completed');
-                }, 1500);
-
-            } else {
-                // Failure
-                document.getElementById('error-message').style.display = 'block';
-                document.getElementById('success-message').style.display = 'none';
-
-                // Clear inputs
-                otpInputs.forEach(input => {
-                    input.value = '';
-                    input.classList.remove('filled');
-                });
-
-                document.getElementById('verify-otp-btn').disabled = true;
-                otpInputs[0].focus();
-            }
-        }
-
-        // Go back to step 1
-        function goBackToStep1() {
-            document.getElementById('step2-form').classList.remove('active');
-            document.getElementById('step1-form').classList.add('active');
-
-            // Update step indicator
-            document.getElementById('step1').classList.add('active');
-            document.getElementById('step2').classList.remove('active');
-            document.getElementById('step1').classList.remove('completed');
-
-            // Clear timer
-            clearInterval(timerInterval);
-
-            // Reset inputs
-            document.getElementById('email-input').value = '';
-            document.getElementById('mobile-input').value = '';
-            document.getElementById('email-input').focus();
-
-            // Hide messages
-            document.getElementById('success-message').style.display = 'none';
-            document.getElementById('error-message').style.display = 'none';
-        }
-
-        // Go to dashboard (simulated)
-        // function goToDashboard() {
-        //     showMessage("Redirecting to dashboard...", "info");
-        //     setTimeout(() => {
-        //         // In real app: window.location.href = 'dashboard.html';
-        //         alert("Redirecting to dashboard... (This is a demo)");
-        //         // For demo, go back to step 1
-        //         document.getElementById('success-step').style.display = 'none';
-        //         goBackToStep1();
-        //     }, 500);
-        // }
-
-        // Helper function to show messages
-        function showMessage(text, type) {
-            const messageDiv = document.createElement('div');
-            messageDiv.className = `message ${type}`;
-
-            // Set icon based on message type
-            let icon = 'bx-info-circle';
-            let iconColor = '#2196F3'; // Default blue for info
-
-            switch (type) {
-                case 'success':
-                    icon = 'bx-check-circle';
-                    iconColor = '#4CAF50'; // Green
-                    break;
-                case 'error':
-                    icon = 'bx-error-circle';
-                    iconColor = '#f44336'; // Red
-                    break;
-                case 'warning':
-                    icon = 'bx-error';
-                    iconColor = '#ff9800'; // Orange
-                    break;
-                case 'info':
-                default:
-                    icon = 'bx-info-circle';
-                    iconColor = '#2196F3'; // Blue
-                    break;
-            }
-
-            messageDiv.innerHTML = `
-        <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px;">
-            <div style="display: flex; align-items: center; gap: 12px;">
-                <i class='bx ${icon}' style="color: ${iconColor}; font-size: 20px;"></i>
-                <span style="color: #333333; font-size: 14px; font-weight: 500;">${text}</span>
-            </div>
-            <button class="close-btn" style="
-                background: none;
-                border: none;
-                color: #757575;
-                font-size: 18px;
-                cursor: pointer;
-                padding: 4px;
-                border-radius: 4px;
-                transition: all 0.2s;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            ">
-                <i class='bx bx-x'></i>
-            </button>
-        </div>
-    `;
-
-            // Apply styling for white background with shadow
-            messageDiv.style.cssText = `
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        z-index: 1000;
-        max-width: 350px;
-        background-color: white;
-        color: #333333;
-        padding: 15px 20px;
-        border-radius: 8px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        font-family: 'Poppins', sans-serif;
-        font-size: 14px;
-        line-height: 1.4;
-        border-left: 4px solid ${iconColor};
-        animation: fadeInSlide 0.3s ease-out forwards;
-        opacity: 0;
-        transform: translateY(-20px);
-    `;
-
-            document.body.appendChild(messageDiv);
-
-            // Add close button functionality
-            const closeBtn = messageDiv.querySelector('.close-btn');
-            closeBtn.addEventListener('mouseover', () => {
-                closeBtn.style.color = '#333333';
-                closeBtn.style.backgroundColor = '#f5f5f5';
-            });
-
-            closeBtn.addEventListener('mouseout', () => {
-                closeBtn.style.color = '#757575';
-                closeBtn.style.backgroundColor = 'transparent';
-            });
-
-            closeBtn.addEventListener('click', () => {
-                messageDiv.style.animation = 'fadeOutSlide 0.3s ease-in forwards';
-                setTimeout(() => {
-                    if (messageDiv.parentNode) {
-                        messageDiv.remove();
-                    }
-                }, 300);
-            });
-
-            // Add animation CSS if not already added
-            if (!document.getElementById('message-animations')) {
-                const style = document.createElement('style');
-                style.id = 'message-animations';
-                style.textContent = `
-            @keyframes fadeInSlide {
-                from {
-                    opacity: 0;
-                    transform: translateY(-20px);
-                }
-                to {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
-            }
-            
-            @keyframes fadeOutSlide {
-                from {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
-                to {
-                    opacity: 0;
-                    transform: translateY(-20px);
-                }
-            }
-        `;
-                document.head.appendChild(style);
-            }
-
-            // Return the message div so you can remove it programmatically later if needed
-            return messageDiv;
-        }
-
-        // Usage: Store reference to remove later
-
-        // To remove it programmatically later:
-        // myMessage.querySelector('.close-btn').click();
-        function showError(text) {
-            showMessage(text, "error");
-        }
-    </script>
-</body>
-
-</html>
+                    const value = e
