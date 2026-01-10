@@ -18,8 +18,8 @@
     --bs-white: #fff;
     --bs-gray: #6c757d;
     --bs-gray-dark: #343a40;
-    --bs-primary: #FF4880;
-    --bs-secondary: #4D65F9;
+    --bs-primary: #ffc107 !important;
+    --bs-secondary: #ff9800 !important;
     --bs-success: #198754;
     --bs-info: #0dcaf0;
     --bs-warning: #ffc107;
@@ -3139,8 +3139,8 @@ fieldset:disabled .btn {
 
 .btn-primary {
     color: #000;
-    background-color: #ff4880;
-    border-color: #ff4880
+    background-color: #ffc107;
+    border-color: #ff9800
 }
 
 .btn-primary:hover {
