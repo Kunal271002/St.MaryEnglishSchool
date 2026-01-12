@@ -374,7 +374,7 @@ h6,
 }
 
 .about {
-    background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url(../img/background.jpg);
+    background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8));
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -673,7 +673,8 @@ h6,
 
 /*** Footer Start ***/
 .footer {
-    background: linear-gradient(rgba(255, 255, 255, .8), rgba(255, 255, 255, 1)), url(../img/background.jpg);
+    /* background: linear-gradient(rgba(255, 255, 255, .8), rgba(255, 255, 255, 1)); */
+    background: #fff1c7;
     background-position: top center;
     background-repeat: no-repeat;
     background-size: cover;
