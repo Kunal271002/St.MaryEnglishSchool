@@ -696,3 +696,11 @@ h6,
     color: var(--bs-secondary) !important;
 }
 /*** Footer End ***/
+
+/* Custom CSS */
+
+@media (max-width: 786px) {
+    .removingButtons{
+       display: none;
+    }
+}
