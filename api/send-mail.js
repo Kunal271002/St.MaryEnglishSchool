@@ -5,13 +5,30 @@ export default async function handler(req, res) {
     return res.status(405).json({ message: "Method not allowed" });
   }
 
-  const { fullName, dob, contact, standard, address } = req.body;
+  const {
+    surname,
+    studentName,
+    fatherName,
+    religion,
+    dob,
+    standard,
+    contact,
+    address,
+
+    fatherFullName,
+    fatherAge,
+    fatherQualification,
+
+    motherFullName,
+    motherAge,
+    motherQualification,
+  } = req.body;
 
   try {
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
       port: Number(process.env.SMTP_PORT),
-      secure: true, // REQUIRED for port 465
+      secure: true, // Port 465 requires SSL
       auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS,
@@ -21,20 +38,43 @@ export default async function handler(req, res) {
     await transporter.sendMail({
       from: `"Office - St. Mary English School" <${process.env.SMTP_USER}>`,
       to: "info@stmaryenglishschool.ac.in",
+      cc: "kk.s67533@gmail.com",
       subject: "New Admission Enquiry",
       html: `
-        <h3>New Admission Form Submission</h3>
-        <p><b>Full Name:</b> ${fullName}</p>
+        <h2>New Admission Form Submission</h2>
+
+        <h3>Student Details</h3>
+        <p><b>Surname:</b> ${surname}</p>
+        <p><b>Student Name:</b> ${studentName}</p>
+        <p><b>Father's Name:</b> ${fatherName}</p>
+        <p><b>Religion:</b> ${religion}</p>
         <p><b>Date of Birth:</b> ${dob}</p>
+        <p><b>Standard Applied For:</b> ${standard}</p>
         <p><b>Contact Number:</b> ${contact}</p>
-        <p><b>Standard:</b> ${standard}</p>
         <p><b>Permanent Address:</b><br>${address}</p>
+
+        <hr />
+
+        <h3>Father's Details</h3>
+        <p><b>Full Name:</b> ${fatherFullName}</p>
+        <p><b>Age:</b> ${fatherAge}</p>
+        <p><b>Qualification:</b> ${fatherQualification}</p>
+
+        <hr />
+
+        <h3>Mother's Details</h3>
+        <p><b>Full Name:</b> ${motherFullName}</p>
+        <p><b>Age:</b> ${motherAge}</p>
+        <p><b>Qualification:</b> ${motherQualification}</p>
       `,
     });
 
     return res.status(200).json({ success: true });
   } catch (error) {
     console.error("Mail error:", error);
-    return res.status(500).json({ success: false, message: "Email failed" });
+    return res.status(500).json({
+      success: false,
+      message: "Email sending failed",
+    });
   }
 }
