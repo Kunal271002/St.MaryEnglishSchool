@@ -32,30 +32,7 @@
   <!-- St. Mary Logo -->
   <link rel="icon" type="image/png" href="img/St.MaryLogo.png" />
 </head>
-<script>
-  document.getElementById("admissionForm").addEventListener("submit", async function (e) {
-    e.preventDefault();
 
-    const formData = Object.fromEntries(new FormData(this));
-
-    try {
-      const response = await fetch("/api/send-mail", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
-
-      if (response.ok) {
-        alert("Form submitted successfully");
-        this.reset();
-      } else {
-        alert("Failed to submit form");
-      }
-    } catch (error) {
-      alert("Server error");
-    }
-  });
-</script>
 
 <body>
   <!-- Spinner Start -->
@@ -517,6 +494,56 @@
 
   <!-- Template Javascript -->
   <script src="js/main.js"></script>
+  <script>
+    document.getElementById("admissionForm").addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      const formData = Object.fromEntries(new FormData(this));
+
+      try {
+        console.log(formData, "Line 21")
+        const response = await fetch("/api/send-mail", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        });
+
+        if (response.ok) {
+          alert("Form submitted successfully");
+          this.reset();
+        } else {
+          alert("Failed to submit form");
+        }
+      } catch (error) {
+        alert("Server error");
+      }
+    });
+  </script>
+  <script>
+    document.getElementById("admissionForm").addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      const formData = Object.fromEntries(new FormData(this));
+
+      try {
+        console.log(formData, "Line 21")
+        const response = await fetch("/api/send-mail", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        });
+
+        if (response.ok) {
+          alert("Form submitted successfully");
+          this.reset();
+        } else {
+          alert("Failed to submit form");
+        }
+      } catch (error) {
+        alert("Server error");
+      }
+    });
+  </script>
 </body>
 
 </html>
