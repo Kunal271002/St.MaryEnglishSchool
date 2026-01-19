@@ -2,7 +2,8 @@
   "dependencies": {
     "axios": "^1.13.2",
     "nodemailer": "^7.0.12",
-    "react-toastify": "^11.0.5"
+    "react-toastify": "^11.0.5",
+    "sweetalert2": "^11.26.17"
   },
   "name": "st.maryenglishschool",
   "version": "1.0.0",
