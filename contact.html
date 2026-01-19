@@ -261,10 +261,35 @@
                     </div> -->
           <div class="col-lg-6 wow fadeIn" data-wow-delay="0.3s">
             <form id="admissionForm">
-              <input type="text" name="fullName" class="w-100 form-control py-3 mb-5 border-primary"
-                placeholder="Full Name" required />
 
-              <!-- DOB & Contact Number -->
+              <!-- STUDENT DETAILS -->
+              <h5 class="mb-3">Student Details</h5>
+
+              <div class="row mb-4">
+                <div class="col-md-4">
+                  <input type="text" name="surname" class="w-100 form-control py-3 border-primary" placeholder="Surname"
+                    required />
+                </div>
+
+                <div class="col-md-4">
+                  <input type="text" name="studentName" class="w-100 form-control py-3 border-primary"
+                    placeholder="Student Name" required />
+                </div>
+
+                <div class="col-md-4">
+                  <input type="text" name="fatherName" class="w-100 form-control py-3 border-primary"
+                    placeholder="Father's Name" required />
+                </div>
+              </div>
+
+              <div class="row mb-5">
+                <div class="col-md-6">
+                  <input type="text" name="religion" class="w-100 form-control py-3 border-primary"
+                    placeholder="Religion" required />
+                </div>
+              </div>
+
+              <!-- DOB & CONTACT -->
               <div class="row mb-5">
                 <div class="col-md-6">
                   <label class="form-label">Date of Birth</label>
@@ -278,11 +303,49 @@
                 </div>
               </div>
 
-              <!-- Standard for Admission -->
+              <!-- FATHER DETAILS -->
+              <h5 class="mb-3">Father's Details</h5>
+
+              <div class="row mb-4">
+                <div class="col-md-6">
+                  <input type="text" name="fatherFullName" class="w-100 form-control py-3 border-primary"
+                    placeholder="Father Full Name" required />
+                </div>
+
+                <div class="col-md-3">
+                  <input type="number" name="fatherAge" class="w-100 form-control py-3 border-primary" placeholder="Age"
+                    required />
+                </div>
+
+                <div class="col-md-3">
+                  <input type="text" name="fatherQualification" class="w-100 form-control py-3 border-primary"
+                    placeholder="Qualification" required />
+                </div>
+              </div>
+
+              <!-- MOTHER DETAILS -->
+              <h5 class="mb-3">Mother's Details</h5>
+
+              <div class="row mb-5">
+                <div class="col-md-6">
+                  <input type="text" name="motherFullName" class="w-100 form-control py-3 border-primary"
+                    placeholder="Mother Full Name" required />
+                </div>
+
+                <div class="col-md-3">
+                  <input type="number" name="motherAge" class="w-100 form-control py-3 border-primary" placeholder="Age"
+                    required />
+                </div>
+
+                <div class="col-md-3">
+                  <input type="text" name="motherQualification" class="w-100 form-control py-3 border-primary"
+                    placeholder="Qualification" required />
+                </div>
+              </div>
+
+              <!-- STANDARD -->
               <select name="standard" class="w-100 form-control py-3 mb-5 border-primary" required>
-                <option value="" disabled selected>
-                  Select Standard for Admission
-                </option>
+                <option value="" disabled selected>Select Standard for Admission</option>
                 <option>Nursery</option>
                 <option>Junior KG</option>
                 <option>Senior KG</option>
@@ -298,13 +361,17 @@
                 <option>Standard 10</option>
               </select>
 
+              <!-- ADDRESS -->
               <textarea name="address" class="w-100 form-control mb-5 border-primary" rows="8"
                 placeholder="Permanent Address" required></textarea>
 
+              <!-- SUBMIT -->
               <button class="w-100 btn btn-primary py-3 text-white" type="submit">
                 Submit
               </button>
+
             </form>
+
 
           </div>
 
@@ -469,9 +536,7 @@
               English High School</a>, All right reserved.</span>
         </div>
         <div class="col-md-6 my-auto text-center text-md-end text-white">
-          <!--/*** This template is free as long as you keep the below author’s credit link/attribution link/backlink. ***/-->
-          <!--/*** If you'd like to use the template without the below author’s credit link/attribution link/backlink, ***/-->
-          <!--/*** you can purchase the Credit Removal License from "#/credit-removal". ***/-->
+
           Designed By <a class="border-bottom" href="#">Kunal Sharma</a>
         </div>
       </div>
