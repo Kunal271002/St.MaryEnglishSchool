@@ -13,15 +13,12 @@ export default async function handler(req, res) {
     dob,
     standard,
     contact,
-    address,
 
     fatherFullName,
-    fatherAge,
-    fatherQualification,
+    fatherOccupation,
 
     motherFullName,
-    motherAge,
-    motherQualification,
+    motherOccupation,
   } = req.body;
 
   try {
@@ -38,36 +35,37 @@ export default async function handler(req, res) {
     await transporter.sendMail({
       from: `"Office - St. Mary English School" <${process.env.SMTP_USER}>`,
       to: "info@stmaryenglishschool.ac.in",
-      cc: "kk.s67533@gmail.com",
+      cc: [
+        "kk.s67533@gmail.com",
+        "mallikashah53@gmail.com"
+      ],
       subject: "New Admission Enquiry",
       html: `
-        <h2>New Admission Form Submission</h2>
+    <h2>New Admission Form Submission</h2>
 
-        <h3>Student Details</h3>
-        <p><b>Surname:</b> ${surname}</p>
-        <p><b>Student Name:</b> ${studentName}</p>
-        <p><b>Father's Name:</b> ${fatherName}</p>
-        <p><b>Religion:</b> ${religion}</p>
-        <p><b>Date of Birth:</b> ${dob}</p>
-        <p><b>Standard Applied For:</b> ${standard}</p>
-        <p><b>Contact Number:</b> ${contact}</p>
-        <p><b>Permanent Address:</b><br>${address}</p>
+    <h3>Student Details</h3>
+    <p><b>Surname:</b> ${surname}</p>
+    <p><b>Student Name:</b> ${studentName}</p>
+    <p><b>Father's Name:</b> ${fatherName}</p>
+    <p><b>Religion:</b> ${religion}</p>
+    <p><b>Date of Birth:</b> ${dob}</p>
+    <p><b>Standard Applied For:</b> ${standard}</p>
+    <p><b>Contact Number:</b> ${contact}</p>
 
-        <hr />
+    <hr />
 
-        <h3>Father's Details</h3>
-        <p><b>Full Name:</b> ${fatherFullName}</p>
-        <p><b>Age:</b> ${fatherAge}</p>
-        <p><b>Qualification:</b> ${fatherQualification}</p>
+    <h3>Father's Details</h3>
+    <p><b>Full Name:</b> ${fatherFullName}</p>
+    <p><b>Occupation:</b> ${fatherOccupation}</p>
 
-        <hr />
+    <hr />
 
-        <h3>Mother's Details</h3>
-        <p><b>Full Name:</b> ${motherFullName}</p>
-        <p><b>Age:</b> ${motherAge}</p>
-        <p><b>Qualification:</b> ${motherQualification}</p>
-      `,
+    <h3>Mother's Details</h3>
+    <p><b>Full Name:</b> ${motherFullName}</p>
+    <p><b>Occupation:</b> ${motherOccupation}</p>
+  `,
     });
+
 
     return res.status(200).json({ success: true });
   } catch (error) {
