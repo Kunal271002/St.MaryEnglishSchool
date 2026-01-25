@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://stmaryenglishschool.ac.in/sitemap.xml
