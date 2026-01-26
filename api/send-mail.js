@@ -14,11 +14,11 @@ export default async function handler(req, res) {
     standard,
     contact,
 
-    fatherFullName,
-    fatherOccupation,
+    // fatherFullName,
+    // fatherOccupation,
 
-    motherFullName,
-    motherOccupation,
+    // motherFullName,
+    // motherOccupation,
   } = req.body;
 
   try {
@@ -52,17 +52,6 @@ export default async function handler(req, res) {
     <p><b>Standard Applied For:</b> ${standard}</p>
     <p><b>Contact Number:</b> ${contact}</p>
 
-    <hr />
-
-    <h3>Father's Details</h3>
-    <p><b>Full Name:</b> ${fatherFullName}</p>
-    <p><b>Occupation:</b> ${fatherOccupation}</p>
-
-    <hr />
-
-    <h3>Mother's Details</h3>
-    <p><b>Full Name:</b> ${motherFullName}</p>
-    <p><b>Occupation:</b> ${motherOccupation}</p>
   `,
     });
 
