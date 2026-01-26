@@ -599,7 +599,7 @@
         e.preventDefault();
 
         const formData = Object.fromEntries(new FormData(this));
-
+        console.log(formData,"FormData")
         try {
           const response = await fetch("/api/send-mail", {
             method: "POST",
