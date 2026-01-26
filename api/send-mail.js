@@ -58,10 +58,17 @@ export default async function handler(req, res) {
 
     return res.status(200).json({ success: true });
   } catch (error) {
-    console.error("Mail error:", error);
+    console.error("Mail error message:", error?.message);
+    console.error("Mail error code:", error?.code);
+    console.error("Mail error response:", error?.response);
+    console.error("Mail error stack:", error?.stack);
+
     return res.status(500).json({
       success: false,
       message: "Email sending failed",
+      errorMessage: error?.message,
+      errorCode: error?.code,
+      errorResponse: error?.response,
     });
   }
 }
