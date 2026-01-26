@@ -218,19 +218,11 @@
     <!-- Navbar End -->
 
     <!-- Modal Search Start -->
-    <div
-      class="modal fade"
-      id="searchModal"
-      tabindex="-1"
-      aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-fullscreen">
+    <div class="modal fade" id="videoModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content rounded-0">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">
-              Search by keyword
-            </h5>
+            <h5 class="modal-title">St. Mary's English School</h5>
             <button
               type="button"
               class="btn-close"
@@ -238,22 +230,19 @@
               aria-label="Close"
             ></button>
           </div>
-          <div class="modal-body d-flex align-items-center">
-            <div class="input-group w-75 mx-auto d-flex">
-              <input
-                type="search"
-                class="form-control p-3"
-                placeholder="keywords"
-                aria-describedby="search-icon-1"
-              />
-              <span id="search-icon-1" class="input-group-text p-3"
-                ><i class="fa fa-search"></i
-              ></span>
+
+          <div class="modal-body p-0">
+            <div class="ratio ratio-16x9">
+              <video id="customVideo" controls autoplay muted playsinline>
+                <source src="" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
             </div>
           </div>
         </div>
       </div>
     </div>
+
     <!-- Modal Search End -->
 
     <!-- Hero Start -->
@@ -292,8 +281,8 @@
                 type="button"
                 class="btn btn-play"
                 data-bs-toggle="modal"
-                data-src="https://www.youtube.com/embed/DWRcNpR6Kdc"
                 data-bs-target="#videoModal"
+                data-video="/img/SchoolVideo.mp4"
               >
                 <span></span>
               </button>
@@ -364,10 +353,12 @@
       aria-labelledby="exampleModalLabel"
       aria-hidden="true"
     >
-      <div class="modal-dialog">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content rounded-0">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Youtube Video</h5>
+            <h5 class="modal-title" id="exampleModalLabel">
+              St. Mary's English School
+            </h5>
             <button
               type="button"
               class="btn-close"
@@ -375,22 +366,27 @@
               aria-label="Close"
             ></button>
           </div>
-          <div class="modal-body">
+
+          <div class="modal-body p-0">
             <!-- 16:9 aspect ratio -->
             <div class="ratio ratio-16x9">
-              <iframe
-                class="embed-responsive-item"
-                src=""
-                id="video"
-                allowfullscreen
-                allowscriptaccess="always"
-                allow="autoplay"
-              ></iframe>
+              <video
+                id="customVideo"
+                controls
+                autoplay
+                muted
+                playsinline
+                preload="metadata"
+              >
+                <source src="" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
             </div>
           </div>
         </div>
       </div>
     </div>
+
     <!-- About End -->
 
     <!-- Service Start -->
@@ -1005,30 +1001,7 @@
                 class="img-fluid w-100"
                 alt="Teacher at St. Mary’s English School"
               />
-              <!-- <div
-                class="team-icon d-flex align-items-center justify-content-center"
-              >
-                <a
-                  class="share btn btn-primary btn-md-square text-white rounded-circle me-3"
-                  href=""
-                  ><i class="fas fa-share-alt"></i
-                ></a>
-                <a
-                  class="share-link btn btn-primary btn-md-square text-white rounded-circle me-3"
-                  href=""
-                  ><i class="fab fa-facebook-f"></i
-                ></a>
-                <a
-                  class="share-link btn btn-primary btn-md-square text-white rounded-circle me-3"
-                  href=""
-                  ><i class="fab fa-twitter"></i
-                ></a>
-                <a
-                  class="share-link btn btn-primary btn-md-square text-white rounded-circle"
-                  href=""
-                  ><i class="fab fa-instagram"></i
-                ></a>
-              </div> -->
+
               <div class="team-content text-center py-3">
                 <h4 class="text-primary">Linda Carlson</h4>
                 <p class="text-muted mb-2">English Teacher</p>
@@ -1143,6 +1116,68 @@
                   shown great improvement in confidence, discipline, and
                   academic performance. I am very satisfied with the school
                   environment.”
+                </p>
+              </div>
+            </div>
+          </div>
+          <div
+            class="testimonial-item img-border-radius bg-light border border-primary p-4"
+          >
+            <div class="p-4 position-relative">
+              <i
+                class="fa fa-quote-right fa-2x text-primary position-absolute"
+                style="top: 15px; right: 15px"
+              ></i>
+              <div class="d-flex align-items-center">
+                <div class="ms-4">
+                  <h4 class="text-dark">Jha Naman</h4>
+                  <p class="m-0 pb-3">Student</p>
+                  <div class="d-flex pe-5">
+                    <i class="fas fa-star text-primary"></i>
+                    <i class="fas fa-star text-primary"></i>
+                    <i class="fas fa-star text-primary"></i>
+                    <i class="fas fa-star text-primary"></i>
+                    <i class="fas fa-star text-primary"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="border-top border-primary mt-4 pt-3">
+                <p class="mb-0">
+                  “The school provides a positive and supportive learning
+                  environment. Teachers are approachable and focus not only on
+                  academics but also on overall personality development. I have
+                  gained confidence, discipline, and a strong foundation for my
+                  future studies.”
+                </p>
+              </div>
+            </div>
+          </div>
+          <div
+            class="testimonial-item img-border-radius bg-light border border-primary p-4"
+          >
+            <div class="p-4 position-relative">
+              <i
+                class="fa fa-quote-right fa-2x text-primary position-absolute"
+                style="top: 15px; right: 15px"
+              ></i>
+              <div class="d-flex align-items-center">
+                <div class="ms-4">
+                  <h4 class="text-dark">Thakur Mehak</h4>
+                  <p class="m-0 pb-3">Student</p>
+                  <div class="d-flex pe-5">
+                    <i class="fas fa-star text-primary"></i>
+                    <i class="fas fa-star text-primary"></i>
+                    <i class="fas fa-star text-primary"></i>
+                    <i class="fas fa-star text-primary"></i>
+                    <i class="fas fa-star text-primary"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="border-top border-primary mt-4 pt-3">
+                <p class="mb-0">
+                  “St. Mary’s High School provides experienced teachers,
+                  excellent facilities, and a positive environment that supports
+                  both academic and personal growth.”
                 </p>
               </div>
             </div>
@@ -1431,5 +1466,26 @@
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+      const videoModal = document.getElementById("videoModal");
+      const video = document.getElementById("customVideo");
+      const source = video.querySelector("source");
+
+      videoModal.addEventListener("show.bs.modal", function (event) {
+        const button = event.relatedTarget;
+        const videoSrc = button.getAttribute("data-video");
+
+        source.src = videoSrc;
+        video.load();
+        video.play();
+      });
+
+      videoModal.addEventListener("hidden.bs.modal", function () {
+        video.pause();
+        video.currentTime = 0;
+        source.src = "";
+        video.load();
+      });
+    </script>
   </body>
 </html>

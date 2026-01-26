@@ -24,7 +24,10 @@
     />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="St. Mary’s English School" />
-    <meta property="og:url" content="https://stmaryenglishschool.ac.in/about.html" />
+    <meta
+      property="og:url"
+      content="https://stmaryenglishschool.ac.in/about.html"
+    />
     <meta
       property="og:image"
       content="https://stmaryenglishschool.ac.in/img/St.MaryLogo.png"
@@ -191,7 +194,9 @@
                 <div class="dropdown-menu m-0 bg-secondary rounded-0">
                   <a href="blog.html" class="dropdown-item">Our Blog</a>
                   <a href="team.html" class="dropdown-item">Our Team</a>
-                  <a href="testimonial.html" class="dropdown-item">Testimonial</a>
+                  <a href="testimonial.html" class="dropdown-item"
+                    >Testimonial</a
+                  >
                 </div>
               </div>
               <a href="contact.html" class="nav-item nav-link">Contact</a>
@@ -214,7 +219,9 @@
       <div class="modal-dialog modal-fullscreen">
         <div class="modal-content rounded-0">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Search by keyword</h5>
+            <h5 class="modal-title" id="exampleModalLabel">
+              Search by keyword
+            </h5>
             <button
               type="button"
               class="btn-close"
@@ -250,7 +257,9 @@
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb justify-content-center mb-0">
             <li class="breadcrumb-item"><a href="./index.html">Home</a></li>
-            <li class="breadcrumb-item text-white" aria-current="page">About Us</li>
+            <li class="breadcrumb-item text-white" aria-current="page">
+              About Us
+            </li>
           </ol>
         </nav>
       </div>
@@ -267,35 +276,31 @@
                 type="button"
                 class="btn btn-play"
                 data-bs-toggle="modal"
-                data-src="https://www.youtube.com/embed/DWRcNpR6Kdc"
                 data-bs-target="#videoModal"
-                aria-label="Play school video"
+                data-video="/img/SchoolVideo.mp4"
               >
                 <span></span>
               </button>
             </div>
           </div>
-
           <div class="col-lg-7 wow fadeIn" data-wow-delay="0.3s">
             <h4
               class="text-primary mb-4 border-bottom border-primary border-2 d-inline-block p-2 title-border-radius"
             >
               About Us
             </h4>
-
-            <!-- SEO fix: only ONE H1 on the page (kept in Page Header). This is H2 -->
             <h2 class="text-dark mb-4 display-5">
-              We Learn the Smart Way to Build a Bright Future for Your Child
+              We Learn Smart Way To Build Bright Futute For Your Children
             </h2>
-
             <p class="text-dark mb-4">
               At <strong>St. Mary’s English School</strong>, we believe that
               education is the cornerstone of a fulfilling life. Established
               with a vision of imparting excellence in education, we have
               created a vibrant learning environment where students thrive
               academically, socially, and emotionally.
-              <a href="about.html">Learn more about our school’s vision and values</a>,
-              explore our <a href="program.html">academic programs</a>, and
+              <a href="about.html"
+                >Learn more about our school’s vision and values</a
+              >, explore our <a href="program.html">academic programs</a>, and
               <a href="team.html">meet our experienced teachers</a> who ensure
               personalized attention for every child, fostering their unique
               talents and capabilities.
@@ -304,13 +309,16 @@
             <div class="row mb-4">
               <div class="col-lg-6">
                 <h6 class="mb-3">
-                  <i class="fas fa-check-circle me-2"></i>Sports Activities
+                  <i class="fas fa-check-circle me-2"></i>Sport Activites
                 </h6>
                 <h6 class="mb-3">
-                  <i class="fas fa-check-circle me-2 text-primary"></i>Outdoor Games
+                  <i class="fas fa-check-circle me-2 text-primary"></i>Outdoor
+                  Games
                 </h6>
+
                 <h6>
-                  <i class="fas fa-check-circle me-2 text-secondary"></i>Qualified Teachers
+                  <i class="fas fa-check-circle me-2 text-secondary"></i
+                  >Qualified Teacher
                 </h6>
               </div>
               <div class="col-lg-6">
@@ -318,15 +326,16 @@
                   <i class="fas fa-check-circle me-2"></i>Highly Secured
                 </h6>
                 <h6 class="mb-3">
-                  <i class="fas fa-check-circle me-2 text-primary"></i>Friendly Environment
+                  <i class="fas fa-check-circle me-2 text-primary"></i>Friendly
+                  Environment
                 </h6>
               </div>
             </div>
-
-            <!-- Fix: remove empty href -->
-            <a href="contact.html" class="btn btn-primary px-5 py-3 btn-border-radius">
-              Admission Enquiry
-            </a>
+            <a
+              href="about.html"
+              class="btn btn-primary px-5 py-3 btn-border-radius"
+              >More Details</a
+            >
           </div>
         </div>
       </div>
@@ -340,10 +349,12 @@
       aria-labelledby="exampleModalLabel"
       aria-hidden="true"
     >
-      <div class="modal-dialog">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content rounded-0">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">YouTube Video</h5>
+            <h5 class="modal-title" id="exampleModalLabel">
+              St. Mary's English School
+            </h5>
             <button
               type="button"
               class="btn-close"
@@ -351,17 +362,21 @@
               aria-label="Close"
             ></button>
           </div>
-          <div class="modal-body">
+
+          <div class="modal-body p-0">
+            <!-- 16:9 aspect ratio -->
             <div class="ratio ratio-16x9">
-              <iframe
-                class="embed-responsive-item"
-                src=""
-                id="video"
-                title="St. Mary’s English School video"
-                allowfullscreen
-                allowscriptaccess="always"
-                allow="autoplay"
-              ></iframe>
+              <video
+                id="customVideo"
+                controls
+                autoplay
+                muted
+                playsinline
+                preload="metadata"
+              >
+                <source src="" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
             </div>
           </div>
         </div>
@@ -437,12 +452,16 @@
                   class="text-body mb-4"
                 >
                   <i class="fa fa-map-marker-alt text-primary me-2"></i>
-                  Ami Park, Panchal Nagar, Nalasopara West, Nala Sopara, Palghar,
-                  Maharashtra 401203
+                  Ami Park, Panchal Nagar, Nalasopara West, Nala Sopara,
+                  Palghar, Maharashtra 401203
                 </a>
 
-                <a href="tel:+919082585088" class="text-start rounded-0 text-body mb-4">
-                  <i class="fa fa-phone-alt text-primary me-2"></i> (+91) 908-258-5088
+                <a
+                  href="tel:+919082585088"
+                  class="text-start rounded-0 text-body mb-4"
+                >
+                  <i class="fa fa-phone-alt text-primary me-2"></i> (+91)
+                  908-258-5088
                 </a>
 
                 <a
@@ -482,7 +501,9 @@
               </h4>
               <div class="row g-3">
                 <div class="col-4">
-                  <div class="footer-galary-img rounded-circle border border-primary">
+                  <div
+                    class="footer-galary-img rounded-circle border border-primary"
+                  >
                     <img
                       src="img/galary-1.jpg"
                       class="img-fluid rounded-circle p-2"
@@ -491,7 +512,9 @@
                   </div>
                 </div>
                 <div class="col-4">
-                  <div class="footer-galary-img rounded-circle border border-primary">
+                  <div
+                    class="footer-galary-img rounded-circle border border-primary"
+                  >
                     <img
                       src="img/galary-2.jpg"
                       class="img-fluid rounded-circle p-2"
@@ -500,7 +523,9 @@
                   </div>
                 </div>
                 <div class="col-4">
-                  <div class="footer-galary-img rounded-circle border border-primary">
+                  <div
+                    class="footer-galary-img rounded-circle border border-primary"
+                  >
                     <img
                       src="img/galary-3.jpg"
                       class="img-fluid rounded-circle p-2"
@@ -509,7 +534,9 @@
                   </div>
                 </div>
                 <div class="col-4">
-                  <div class="footer-galary-img rounded-circle border border-primary">
+                  <div
+                    class="footer-galary-img rounded-circle border border-primary"
+                  >
                     <img
                       src="img/galary-4.jpg"
                       class="img-fluid rounded-circle p-2"
@@ -518,7 +545,9 @@
                   </div>
                 </div>
                 <div class="col-4">
-                  <div class="footer-galary-img rounded-circle border border-primary">
+                  <div
+                    class="footer-galary-img rounded-circle border border-primary"
+                  >
                     <img
                       src="img/galary-5.jpg"
                       class="img-fluid rounded-circle p-2"
@@ -527,7 +556,9 @@
                   </div>
                 </div>
                 <div class="col-4">
-                  <div class="footer-galary-img rounded-circle border border-primary">
+                  <div
+                    class="footer-galary-img rounded-circle border border-primary"
+                  >
                     <img
                       src="img/galary-6.jpg"
                       class="img-fluid rounded-circle p-2"
@@ -538,7 +569,6 @@
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </div>
@@ -584,5 +614,26 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <script>
+      const videoModal = document.getElementById("videoModal");
+      const video = document.getElementById("customVideo");
+      const source = video.querySelector("source");
+
+      videoModal.addEventListener("show.bs.modal", function (event) {
+        const button = event.relatedTarget;
+        const videoSrc = button.getAttribute("data-video");
+
+        source.src = videoSrc;
+        video.load();
+        video.play();
+      });
+
+      videoModal.addEventListener("hidden.bs.modal", function () {
+        video.pause();
+        video.currentTime = 0;
+        source.src = "";
+        video.load();
+      });
+    </script>
   </body>
 </html>
