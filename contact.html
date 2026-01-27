@@ -128,10 +128,11 @@
     <div
       id="spinner"
       class="w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50 d-flex align-items-center justify-content-center"
-      style="display: none"
     >
       <div class="spinner-grow text-primary" role="status"></div>
     </div>
+
+    <!-- Spinner End -->
 
     <!-- Spinner End -->
 
@@ -791,60 +792,64 @@
     <script src="js/main.js"></script>
 
     <script>
+      const spinner = document.getElementById("spinner");
+      const form = document.getElementById("admissionForm");
+
+      // Hide spinner on page load
+      spinner.classList.remove("show");
+
       function showSpinner() {
-        document.getElementById("spinner").style.display = "flex";
+        spinner.classList.add("show");
       }
 
       function hideSpinner() {
-        document.getElementById("spinner").style.display = "none";
+        spinner.classList.remove("show");
       }
-    </script>
-<script>
-  document
-    .getElementById("admissionForm")
-    .addEventListener("submit", async function (e) {
-      e.preventDefault();
 
-      showSpinner(); // 👈 SHOW loader immediately
+      form.addEventListener("submit", async function (e) {
+        e.preventDefault();
 
-      const formData = Object.fromEntries(new FormData(this));
+        const submitBtn = form.querySelector('button[type="submit"]');
+        submitBtn.disabled = true;
 
-      try {
-        const response = await fetch("/api/send-mail", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(formData),
-        });
+        showSpinner();
 
-        const result = await response.json();
+        const formData = Object.fromEntries(new FormData(form));
 
-        hideSpinner(); // 👈 HIDE loader after response
-
-        if (response.ok) {
-          Swal.fire({
-            title: "Success!",
-            text: "Form Submitted Successfully!",
-            icon: "success",
+        try {
+          const response = await fetch("/api/send-mail", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(formData),
           });
-          this.reset();
-        } else {
+
+          const result = await response.json();
+
+          if (response.ok) {
+            Swal.fire({
+              title: "Success!",
+              text: "Form Submitted Successfully!",
+              icon: "success",
+            });
+            form.reset();
+          } else {
+            Swal.fire({
+              title: "Error!",
+              text: result.errorMessage || "Something went wrong",
+              icon: "error",
+            });
+          }
+        } catch (error) {
           Swal.fire({
-            title: "Error!",
-            text: result.errorMessage || "Something went wrong",
+            title: "Server Error",
+            text: error.message,
             icon: "error",
           });
+        } finally {
+          hideSpinner();
+          submitBtn.disabled = false;
         }
-      } catch (error) {
-        hideSpinner(); // 👈 HIDE loader on error
-
-        Swal.fire({
-          title: "Server Error",
-          text: error.message,
-          icon: "error",
-        });
-      }
-    });
-</script>
-
+      });
+    </script>
   </body>
 </html>
