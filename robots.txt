@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.stmaryenglishschool.ac.in/sitemap.xml
+Sitemap: https://stmaryenglishschool.ac.in/sitemap.xml
