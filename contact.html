@@ -127,10 +127,12 @@
     <!-- Spinner Start -->
     <div
       id="spinner"
-      class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50 d-flex align-items-center justify-content-center"
+      class="w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50 d-flex align-items-center justify-content-center"
+      style="display: none"
     >
       <div class="spinner-grow text-primary" role="status"></div>
     </div>
+
     <!-- Spinner End -->
 
     <!-- Navbar start -->
@@ -789,40 +791,60 @@
     <script src="js/main.js"></script>
 
     <script>
-      document
-        .getElementById("admissionForm")
-        .addEventListener("submit", async function (e) {
-          e.preventDefault();
+      function showSpinner() {
+        document.getElementById("spinner").style.display = "flex";
+      }
 
-          const formData = Object.fromEntries(new FormData(this));
-          console.log("FormData:", formData);
-
-          try {
-            const response = await fetch("/api/send-mail", {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify(formData),
-            });
-
-            const result = await response.json(); // 👈 IMPORTANT
-            console.log("API Response:", result);
-
-            if (response.ok) {
-              Swal.fire({
-                title: "Success!",
-                text: "Form Submitted Successfully!",
-                icon: "success",
-              });
-              this.reset();
-            } else {
-              console.error("Server Error Details:", result);
-              alert("Mail error:\n" + (result.errorMessage || "Unknown error"));
-            }
-          } catch (error) {
-            console.error("Client-side error:", error);
-            alert("Client error: " + error.message);
-          }
-        });
+      function hideSpinner() {
+        document.getElementById("spinner").style.display = "none";
+      }
     </script>
+<script>
+  document
+    .getElementById("admissionForm")
+    .addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      showSpinner(); // 👈 SHOW loader immediately
+
+      const formData = Object.fromEntries(new FormData(this));
+
+      try {
+        const response = await fetch("/api/send-mail", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        });
+
+        const result = await response.json();
+
+        hideSpinner(); // 👈 HIDE loader after response
+
+        if (response.ok) {
+          Swal.fire({
+            title: "Success!",
+            text: "Form Submitted Successfully!",
+            icon: "success",
+          });
+          this.reset();
+        } else {
+          Swal.fire({
+            title: "Error!",
+            text: result.errorMessage || "Something went wrong",
+            icon: "error",
+          });
+        }
+      } catch (error) {
+        hideSpinner(); // 👈 HIDE loader on error
+
+        Swal.fire({
+          title: "Server Error",
+          text: error.message,
+          icon: "error",
+        });
+      }
+    });
+</script>
+
   </body>
 </html>
