@@ -1,0 +1,8 @@
+{
+  "redirects": [
+    { "source": "/Resources/:path*", "destination": "/", "permanent": true },
+    { "source": "/Student/:path*", "destination": "/", "permanent": true },
+    { "source": "/Academics/:path*", "destination": "/", "permanent": true },
+    { "source": "/Academics", "destination": "/", "permanent": true }
+  ]
+}
