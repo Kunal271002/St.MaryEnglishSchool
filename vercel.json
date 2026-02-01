@@ -1,8 +1,29 @@
 {
   "redirects": [
-    { "source": "/Resources/:path*", "destination": "/", "permanent": true },
-    { "source": "/Student/:path*", "destination": "/", "permanent": true },
-    { "source": "/Academics/:path*", "destination": "/", "permanent": true },
-    { "source": "/Academics", "destination": "/", "permanent": true }
+    {
+      "source": "/Resources/:path*",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/Student/:path*",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/Academics/:path*",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/Academics",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/events/details/:path*",
+      "destination": "/",
+      "permanent": true
+    }
   ]
 }
