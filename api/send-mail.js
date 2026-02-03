@@ -37,7 +37,8 @@ export default async function handler(req, res) {
       to: "info@stmaryenglishschool.ac.in",
       cc: [
         "kk.s67533@gmail.com",
-        "mallikashah53@gmail.com"
+        "mallikashah53@gmail.com",
+        "info@stmaryenglishschool.ac.in"
       ],
       subject: "New Admission Enquiry",
       html: `
